@@ -1,0 +1,49 @@
+﻿<Window x:Class="FinancialInstitution.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinancialInstitution"
+        
+        mc:Ignorable="d" Background="#f0efe6"
+        Title="MainWindow" Height="750" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" Background="#4b14e3">
+            <StackPanel  PreviewMouseDown="TextBlockHome_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,80,0,30">
+                <Image   Source="/Images/bank_PNG24.png" Width="30" Height="30"/>
+                <TextBlock x:Name="Home" Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Home" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
+            </StackPanel>
+
+            <StackPanel  PreviewMouseDown="TextBlockHome_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
+                <Image   Source="/Images/add.png" Width="30" Height="30"/>
+                <TextBlock  Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Create New Account" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
+            </StackPanel>
+
+            <StackPanel  PreviewMouseDown="TextBlockHome_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
+                <Image   Source="/Images/bank_PNG24.png" Width="30" Height="30"/>
+                <TextBlock  Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Add To Existing Account" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
+            </StackPanel>
+
+            <StackPanel  PreviewMouseDown="TextBlockHome_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
+                <Image   Source="/Images/bank_PNG24.png" Width="30" Height="30"/>
+                <TextBlock  Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Update Account " FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
+            </StackPanel>
+
+            <StackPanel  PreviewMouseDown="TextBlockHome_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
+                <Image   Source="/Images/bank_PNG24.png" Width="30" Height="30"/>
+                <TextBlock  Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Account Details" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
+            </StackPanel>
+
+        </StackPanel>
+
+        
+
+    </Grid>
+</Window>
