@@ -27,13 +27,61 @@ namespace FinancialInstitution
 
         private void TextBlockHome_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Create create = new Create();
+            
+        }
 
+        private void StPanelCreate_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Create create = new Create();
+            TboxCreateUser.Foreground = Brushes.Gray;
             create.Owner = this;
-            create.Left = this.Left + 247 ;
+            create.Left = this.Left + 247;
             create.Top = this.Top;
+            create.Topmost = true;
 
             create.ShowDialog();
+            TboxCreateUser.Foreground = Brushes.White;
         }
+
+        private void AddToExisting_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AddToExisting addToExisting = new AddToExisting();
+            TboxAddToExisting.Foreground = Brushes.Gray;
+            addToExisting.Owner = this;
+            addToExisting.Left = this.Left + 247;
+            addToExisting.Top = this.Top;
+            addToExisting.Topmost = true;
+
+            addToExisting.ShowDialog();
+            TboxAddToExisting.Foreground = Brushes.White;
+        }
+
+        private void StPanelUpdateAcount_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            UpdateAccount updateAccount = new UpdateAccount();
+            TboxUpdateAcount.Foreground = Brushes.Gray;
+            updateAccount.Owner = this;
+            updateAccount.Left = this.Left + 247;
+            updateAccount.Top = this.Top;
+            updateAccount.Topmost = true;
+
+            var result = updateAccount.ShowDialog();
+            TboxUpdateAcount.Foreground = Brushes.White;
+        }
+
+        private void StPanelAccountDetails_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AccountDetails accountDetails = new AccountDetails();
+            TboxAccountDetails.Foreground = Brushes.Gray;
+            accountDetails.Owner = this;
+            accountDetails.Left = this.Left + 247;
+            accountDetails.Top = this.Top;
+            accountDetails.Topmost = true;
+
+            accountDetails.ShowDialog();
+            TboxAccountDetails.Foreground = Brushes.White;
+        }
+
+        
     }
 }

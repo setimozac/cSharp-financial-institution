@@ -17,3 +17,9 @@ C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial
 C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\Create.baml
 C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\ClientInsertPassword.g.cs
 C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\ClientInsertPassword.baml
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\AddToExisting.g.cs
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\AddToExisting.baml
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\UpdateAccount.g.cs
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\UpdateAccount.baml
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\AccountDetails.g.cs
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\AccountDetails.baml

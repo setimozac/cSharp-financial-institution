@@ -21,24 +21,24 @@
                 <TextBlock x:Name="Home" Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Home" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
             </StackPanel>
 
-            <StackPanel  PreviewMouseDown="TextBlockHome_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
-                <Image   Source="/Images/add.png" Width="30" Height="30"/>
-                <TextBlock  Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Create New Account" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
+            <StackPanel x:Name="StPanelCreate" PreviewMouseDown="StPanelCreate_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
+                <Image  Source="/Images/add-user.png"  Width="30" Height="30"/>
+                <TextBlock x:Name="TboxCreateUser" Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Create New Account" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
             </StackPanel>
 
-            <StackPanel  PreviewMouseDown="TextBlockHome_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
-                <Image   Source="/Images/bank_PNG24.png" Width="30" Height="30"/>
-                <TextBlock  Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Add To Existing Account" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
+            <StackPanel  x:Name="AddToExisting" PreviewMouseDown="AddToExisting_PreviewMouseDown"  Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
+                <Image  Source="/Images/add.png"  Width="30" Height="30"/>
+                <TextBlock x:Name="TboxAddToExisting"  Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Add To Existing Account" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
             </StackPanel>
 
-            <StackPanel  PreviewMouseDown="TextBlockHome_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
-                <Image   Source="/Images/bank_PNG24.png" Width="30" Height="30"/>
-                <TextBlock  Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Update Account " FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
-            </StackPanel>
+            <StackPanel x:Name="StPanelUpdateAcount" PreviewMouseDown="StPanelUpdateAcount_PreviewMouseDown"  Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
+                <Image   Source="/Images/update.png" Width="30" Height="30"/>
+                <TextBlock x:Name="TboxUpdateAcount" Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Update Account " FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
+            </StackPanel> 
 
-            <StackPanel  PreviewMouseDown="TextBlockHome_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
-                <Image   Source="/Images/bank_PNG24.png" Width="30" Height="30"/>
-                <TextBlock  Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Account Details" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
+            <StackPanel x:Name="StPanelAccountDetails"  PreviewMouseDown="StPanelAccountDetails_PreviewMouseDown" Orientation="Horizontal" Background="#4b14e3" Margin="20,0,0,30">
+                <Image   Source="/Images/details.png" Width="30" Height="30"/>
+                <TextBlock x:Name="TboxAccountDetails"  Margin="10,0" VerticalAlignment="Center" TextAlignment="Center" Text="Account Details" FontWeight="Bold" FontSize="16" Foreground="#FFF9F8F8" />
             </StackPanel>
 
         </StackPanel>
