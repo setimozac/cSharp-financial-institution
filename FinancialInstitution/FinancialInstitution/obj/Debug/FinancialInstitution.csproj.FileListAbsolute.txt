@@ -23,3 +23,10 @@ C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial
 C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\UpdateAccount.baml
 C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\AccountDetails.g.cs
 C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\AccountDetails.baml
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\bin\Debug\Innovative.Geometry.Angle.dll
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\bin\Debug\Innovative.SolarCalculator.dll
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\bin\Debug\Innovative.Geometry.Angle.xml
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\bin\Debug\Innovative.SolarCalculator.xml
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\Calendar.g.cs
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\Calendar.baml
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\FinancialInstitution.csproj.CopyComplete

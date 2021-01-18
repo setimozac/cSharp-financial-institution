@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Innovative.SolarCalculator;
 
 namespace FinancialInstitution
 {
@@ -20,9 +21,11 @@ namespace FinancialInstitution
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool IsLoggedIn = true;
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void TextBlockHome_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -32,56 +35,86 @@ namespace FinancialInstitution
 
         private void StPanelCreate_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Create create = new Create();
-            TboxCreateUser.Foreground = Brushes.Gray;
-            create.Owner = this;
-            create.Left = this.Left + 247;
-            create.Top = this.Top;
-            create.Topmost = true;
+            if(IsLoggedIn)
+            {
+                Create create = new Create();
+                TboxCreateUser.Foreground = Brushes.Gray;
+                create.Owner = this;
+                create.Left = this.Left + 247;
+                create.Top = this.Top;
+                create.Topmost = true;
 
-            create.ShowDialog();
-            TboxCreateUser.Foreground = Brushes.White;
+                create.ShowDialog();
+                TboxCreateUser.Foreground = Brushes.White;
+            }
+            
         }
 
         private void AddToExisting_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            AddToExisting addToExisting = new AddToExisting();
-            TboxAddToExisting.Foreground = Brushes.Gray;
-            addToExisting.Owner = this;
-            addToExisting.Left = this.Left + 247;
-            addToExisting.Top = this.Top;
-            addToExisting.Topmost = true;
+            if (IsLoggedIn)
+            {
+                AddToExisting addToExisting = new AddToExisting();
+                TboxAddToExisting.Foreground = Brushes.Gray;
+                addToExisting.Owner = this;
+                addToExisting.Left = this.Left + 247;
+                addToExisting.Top = this.Top;
+                addToExisting.Topmost = true;
 
-            addToExisting.ShowDialog();
-            TboxAddToExisting.Foreground = Brushes.White;
+                addToExisting.ShowDialog();
+                TboxAddToExisting.Foreground = Brushes.White;
+            }
+                
         }
 
         private void StPanelUpdateAcount_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            UpdateAccount updateAccount = new UpdateAccount();
-            TboxUpdateAcount.Foreground = Brushes.Gray;
-            updateAccount.Owner = this;
-            updateAccount.Left = this.Left + 247;
-            updateAccount.Top = this.Top;
-            updateAccount.Topmost = true;
+            if (IsLoggedIn)
+            {
+                UpdateAccount updateAccount = new UpdateAccount();
+                TboxUpdateAcount.Foreground = Brushes.Gray;
+                updateAccount.Owner = this;
+                updateAccount.Left = this.Left + 247;
+                updateAccount.Top = this.Top;
+                updateAccount.Topmost = true;
 
-            var result = updateAccount.ShowDialog();
-            TboxUpdateAcount.Foreground = Brushes.White;
+                var result = updateAccount.ShowDialog();
+                TboxUpdateAcount.Foreground = Brushes.White;
+            }
+                
         }
 
         private void StPanelAccountDetails_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            AccountDetails accountDetails = new AccountDetails();
-            TboxAccountDetails.Foreground = Brushes.Gray;
-            accountDetails.Owner = this;
-            accountDetails.Left = this.Left + 247;
-            accountDetails.Top = this.Top;
-            accountDetails.Topmost = true;
+            if (IsLoggedIn)
+            {
+                AccountDetails accountDetails = new AccountDetails();
+                TboxAccountDetails.Foreground = Brushes.Gray;
+                accountDetails.Owner = this;
+                accountDetails.Left = this.Left + 247;
+                accountDetails.Top = this.Top;
+                accountDetails.Topmost = true;
 
-            accountDetails.ShowDialog();
-            TboxAccountDetails.Foreground = Brushes.White;
+                accountDetails.ShowDialog();
+                TboxAccountDetails.Foreground = Brushes.White;
+            }
+                
         }
 
-        
+        private void MenueItemCalendar_Click(object sender, RoutedEventArgs e)
+        {
+            Calendar calendar = new Calendar();
+            calendar.Owner = this;
+            calendar.Left = this.Left + 700;
+            calendar.Top = this.Top;
+
+            calendar.ShowDialog();
+        }
+
+        private void MenueItemCalculator_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process p = System.Diagnostics.Process.Start("calc.exe");
+            p.WaitForInputIdle();
+        }
     }
 }
