@@ -22,6 +22,7 @@ namespace FinancialInstitution
     public partial class MainWindow : Window
     {
         public bool IsLoggedIn = true;
+        public Client LogedInClient = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -50,26 +51,26 @@ namespace FinancialInstitution
             
         }
 
-        private void AddToExisting_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void FindAccount_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (IsLoggedIn)
             {
-                AddToExisting addToExisting = new AddToExisting();
-                TboxAddToExisting.Foreground = Brushes.Gray;
-                addToExisting.Owner = this;
-                addToExisting.Left = this.Left + 247;
-                addToExisting.Top = this.Top;
-                addToExisting.Topmost = true;
+                FindAnAccount findAnAccount = new FindAnAccount();
+                TboxFindAnAccount.Foreground = Brushes.Gray;
+                findAnAccount.Owner = this;
+                findAnAccount.Left = this.Left + 247;
+                findAnAccount.Top = this.Top;
+                findAnAccount.Topmost = true;
 
-                addToExisting.ShowDialog();
-                TboxAddToExisting.Foreground = Brushes.White;
+                findAnAccount.ShowDialog();
+                TboxFindAnAccount.Foreground = Brushes.White;
             }
                 
         }
 
         private void StPanelUpdateAcount_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (IsLoggedIn)
+            if (IsLoggedIn && LogedInClient != null)
             {
                 UpdateAccount updateAccount = new UpdateAccount();
                 TboxUpdateAcount.Foreground = Brushes.Gray;
@@ -86,7 +87,7 @@ namespace FinancialInstitution
 
         private void StPanelAccountDetails_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (IsLoggedIn)
+            if (IsLoggedIn && LogedInClient != null)
             {
                 AccountDetails accountDetails = new AccountDetails();
                 TboxAccountDetails.Foreground = Brushes.Gray;
@@ -115,6 +116,37 @@ namespace FinancialInstitution
         {
             System.Diagnostics.Process p = System.Diagnostics.Process.Start("calc.exe");
             p.WaitForInputIdle();
+        }
+
+        private void MenuItemClientLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsLoggedIn)
+            {
+                ClientPassword clientPassword = new ClientPassword();
+                TboxAccountDetails.Foreground = Brushes.Gray;
+                clientPassword.Owner = this;
+                clientPassword.Left = this.Left + 247;
+                clientPassword.Top = this.Top;
+                clientPassword.Topmost = true;
+
+                clientPassword.ShowDialog();
+            }
+        }
+
+        private void StPanelTransaction_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (IsLoggedIn && LogedInClient != null)
+            {
+                Transaction transaction = new Transaction();
+                TboxTransaction.Foreground = Brushes.Gray;
+                transaction.Owner = this;
+                transaction.Left = this.Left + 247;
+                transaction.Top = this.Top;
+                transaction.Topmost = true;
+
+                transaction.ShowDialog();
+                TboxTransaction.Foreground = Brushes.White;
+            }
         }
     }
 }
