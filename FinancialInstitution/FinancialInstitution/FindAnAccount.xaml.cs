@@ -17,9 +17,9 @@ namespace FinancialInstitution
     /// <summary>
     /// Interaction logic for AddToExisting.xaml
     /// </summary>
-    public partial class AddToExisting : Window
+    public partial class FindAnAccount : Window
     {
-        public AddToExisting()
+        public FindAnAccount()
         {
             InitializeComponent();
         }
