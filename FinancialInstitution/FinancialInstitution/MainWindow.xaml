@@ -99,14 +99,34 @@
                 <MenuItem Header="Tools" Width="60">
                     <MenuItem x:Name="MenueItemCalendar" Click="MenueItemCalendar_Click"  Header="Calendar"/>
                     <MenuItem x:Name="MenueItemCalculator" Click="MenueItemCalculator_Click"  Header="Calculator"/>
+                    <MenuItem x:Name="MenueItemTakePhoto" Click="MenueItemTakePhoto_Click"  Header="Take Photo"/>
                 </MenuItem>
 
             </Menu>
 
+            <Border  Grid.ColumnSpan="4" Grid.Row="4" Grid.RowSpan="4" Margin="10,10"  Height="400" BorderThickness="3" BorderBrush="Gray" CornerRadius="5">
+            <ScrollViewer Grid.Column="0" Opacity="0.8">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/home/home0.jpg" />
+                        <TextBlock Text="Investment" Width="600" HorizontalAlignment="Center" TextAlignment="Center" FontSize="36" FontWeight="Bold"/>
+                        
+                        <Image Source="/Images/home/home1.jpg" />
+                        <TextBlock Text="Safety" Width="600" HorizontalAlignment="Center" TextAlignment="Center" FontSize="36" FontWeight="Bold"/>
+                    <Image Source="/Images/home/home2.jpg" />
+                </StackPanel>
+            
+
+            </ScrollViewer>
+            </Border>
 
             <TextBlock x:Name="TblEmpInfo" Text="Moe" Width="100" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="1" Margin="5"/>
 
         </Grid>
 
     </Grid>
+    <Window.Resources>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="Gray"/>
+        </Style>
+    </Window.Resources>
 </Window>

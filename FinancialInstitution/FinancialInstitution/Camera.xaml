@@ -1,0 +1,26 @@
+﻿<Window x:Class="FinancialInstitution.Camera"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinancialInstitution"
+        mc:Ignorable="d"
+        Title="Camera" Height="350" Width="500" FontWeight="Bold" Foreground="Black" FontFamily="Consolas">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="BtnSaveImg" Click="BtnSaveImg_Click" Content="Save" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" FontSize="28" FontWeight="Bold" Background="#FF1B7E11"/>
+        <Image x:Name="ImgFrame" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+        <Button x:Name="BtnExitImg" Click="BtnExitImg_Click" Content="Exit" Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Background="#FFBF0B44" BorderBrush="#FFF7F2F2" FontSize="28"/>
+    </Grid>
+</Window>

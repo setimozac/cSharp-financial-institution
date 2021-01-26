@@ -80,9 +80,10 @@ namespace FinancialInstitution
                 updateAccount.Topmost = true;
 
                 var result = updateAccount.ShowDialog();
-                TboxUpdateAcount.Foreground = Brushes.White;
-            }
                 
+            }
+            TboxUpdateAcount.Foreground = Brushes.White;
+
         }
 
         private void StPanelAccountDetails_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -97,9 +98,10 @@ namespace FinancialInstitution
                 accountDetails.Topmost = true;
 
                 accountDetails.ShowDialog();
-                TboxAccountDetails.Foreground = Brushes.White;
-            }
                 
+            }
+            TboxAccountDetails.Foreground = Brushes.White;
+
         }
 
         private void MenueItemCalendar_Click(object sender, RoutedEventArgs e)
@@ -122,7 +124,7 @@ namespace FinancialInstitution
         {
             if (IsLoggedIn)
             {
-                ClientPassword clientPassword = new ClientPassword();
+                ClientInsertPassword clientPassword = new ClientInsertPassword();
                 TboxAccountDetails.Foreground = Brushes.Gray;
                 clientPassword.Owner = this;
                 clientPassword.Left = this.Left + 247;
@@ -145,8 +147,17 @@ namespace FinancialInstitution
                 transaction.Topmost = true;
 
                 transaction.ShowDialog();
-                TboxTransaction.Foreground = Brushes.White;
+                
             }
+            TboxTransaction.Foreground = Brushes.White;
+        }
+
+        private void MenueItemTakePhoto_Click(object sender, RoutedEventArgs e)
+        {
+            Camera camera = new Camera();
+            camera.Owner = this;
+
+            camera.ShowDialog();
         }
     }
 }
