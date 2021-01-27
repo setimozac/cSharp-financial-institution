@@ -96,7 +96,7 @@
     <Compile Include="Camera.xaml.cs">
       <DependentUpon>Camera.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Client.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="ClientPassword.xaml.cs">
       <DependentUpon>ClientPassword.xaml</DependentUpon>
     </Compile>

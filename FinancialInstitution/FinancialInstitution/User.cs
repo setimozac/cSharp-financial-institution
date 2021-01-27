@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinancialInstitution
 {
-    public class Client
+    public class User
     {
     }
 }
