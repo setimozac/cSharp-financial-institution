@@ -71,18 +71,18 @@ namespace FinancialInstitution.entities
             }
         }
 
-        private string _recieveraccountNumber;
+        private string _recieverAccountNumber;
 
         [ForeignKey("Account2")]
         public string RecieverAccountNumber
         {
             get
             {
-                return _recieveraccountNumber;
+                return _recieverAccountNumber;
             }
             set
             {
-                _recieveraccountNumber = value;
+                _recieverAccountNumber = value;
             }
         }
 
