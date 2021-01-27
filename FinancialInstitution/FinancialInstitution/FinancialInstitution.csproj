@@ -101,6 +101,7 @@
       <DependentUpon>ClientPassword.xaml</DependentUpon>
     </Compile>
     <Compile Include="entities\Account.cs" />
+    <Compile Include="entities\DbContextDemo.cs" />
     <Compile Include="entities\Profile.cs" />
     <Compile Include="entities\Transaction.cs" />
     <Compile Include="entities\User.cs" />

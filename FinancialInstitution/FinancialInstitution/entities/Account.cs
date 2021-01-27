@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FinancialInstitution.entities
 {
-    class Account
+    public class Account
     {
         private int _userId;
+
+        
+        [ForeignKey("User")]
         public int UserId
         {
             get
@@ -22,6 +27,10 @@ namespace FinancialInstitution.entities
         }
 
         private string _accountNumber;
+
+        [Key]
+        [Required]
+        [StringLength(255)]
         public string AccountNumber
         {
             get
@@ -35,6 +44,8 @@ namespace FinancialInstitution.entities
         }
 
         private DateTime _createdDate;
+
+        [Required]
         public DateTime CreatedDate
         {
             get { return _createdDate; }
@@ -46,6 +57,7 @@ namespace FinancialInstitution.entities
 
         private AccountTypeEnum _accountType;
 
+        [Required]
         public AccountTypeEnum AccountType
         {
             get
@@ -59,6 +71,8 @@ namespace FinancialInstitution.entities
         }
 
         private double _balance;
+
+        [Required]
         public double Balance
         {
             get
@@ -70,6 +84,10 @@ namespace FinancialInstitution.entities
                 _balance = value;
             }
         }
+
+
+        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual User User { get; set; }
     }
 
     public enum AccountTypeEnum
