@@ -24,7 +24,7 @@ namespace FinancialInstitution
     public partial class MainWindow : Window
     {
         public bool IsLoggedIn = true;
-        public Client LogedInClient = null;
+        public static User LogedInClient = null;
         
         public MainWindow()
         {
