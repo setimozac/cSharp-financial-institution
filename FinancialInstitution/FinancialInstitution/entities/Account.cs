@@ -95,6 +95,6 @@ namespace FinancialInstitution.entities
         Checking,
         Saving,
         TaxFreeSaving,
-        creadit
+        Credit
     }
 }

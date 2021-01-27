@@ -9,8 +9,105 @@
         BorderThickness="0"
         BorderBrush="White"
         Icon="/Images/create.png"
-        Title="Find account" Height="750" Width="754">
-    <Grid>
         
+        Title="Find account" Height="750" Width="754" Background="#FF335E6A" Foreground="#FFF9F4F4">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu DockPanel.Dock="Top" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0">
+            <MenuItem Header="File" Width="60">
+                <MenuItem x:Name="MenuItemExit" Header="Exit">
+
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Authentication" Width="100">
+                <MenuItem x:Name="MenuItemEmpLogin" Header="Employee Login" >
+                    <MenuItem.Icon >
+                        <Image Source="/Images/employee-icon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MenuItemClientLogin"  Header="Client password">
+                    <MenuItem.Icon >
+                        <Image Source="/Images/dial.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="MenuItemEmpLogout" Header="Employee Logout" >
+                    <MenuItem.Icon >
+                        <Image Source="/Images/employee-icon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Tools" Width="60">
+                <MenuItem x:Name="MenueItemCalendar"   Header="Calendar"/>
+                <MenuItem x:Name="MenueItemCalculator"   Header="Calculator"/>
+                <MenuItem x:Name="MenueItemTakePhoto"   Header="Take Photo"/>
+            </MenuItem>
+
+        </Menu>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal" Margin="10,30,10,10">
+                <TextBlock Text="First name: " Width="100"/>
+                <TextBox x:Name="TboxFirstName" Width="200" Margin="10,0" KeyUp="TboxFirstName_KeyUp"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Last name: " Width="100"/>
+                <TextBox x:Name="TboxLastName" Width="200" Margin="10,0" KeyUp="TboxLastName_KeyUp"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Email: " Width="100"/>
+                <TextBox x:Name="TboxEmail" Width="200" Margin="10,0" KeyUp="TboxEmail_KeyUp"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Account Number: " Width="100"/>
+                <TextBox x:Name="TboxAccountNum" Width="200" Margin="10,0" KeyUp="TboxAccountNum_KeyUp"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ListView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="10">
+            <ListView.View >
+                <GridView>
+                    <GridViewColumn Header="ID" Width="30"/>
+                    <GridViewColumn Header="Account number" Width="120"/>
+                    <GridViewColumn Header="First name" Width="120"/>
+                    <GridViewColumn Header="Last name" Width="120"/>
+                    <GridViewColumn Header="Email" Width="120"/>
+                    <GridViewColumn Header="Phone number" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Content="LOG IN " Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2"  Margin="3,3,10,20" Background="#FFACAC72" FontSize="16" FontWeight="Bold">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="0,0,30,0"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="HOME" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  Margin="10,3,3,20" Background="#FFACAC72" FontWeight="Bold" FontSize="16">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="0,0,0,30"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

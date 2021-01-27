@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FinancialInstitution.entities;
+using FinancialInstitution.globals;
 using Innovative.SolarCalculator;
 
 namespace FinancialInstitution
@@ -24,11 +25,13 @@ namespace FinancialInstitution
     {
         public bool IsLoggedIn = true;
         public Client LogedInClient = null;
-        DbContextDemo ctx = new DbContextDemo();
+        
         public MainWindow()
         {
             InitializeComponent();
-            /*ctx.Users.Add(new User() { Password = "abc123", PassCode = 1234, IsEmployee = true });
+            DbGlobals.ctx = new DbContextDemo();
+            /*
+             * ctx.Users.Add(new User() { Password = "abc123", PassCode = 1234, IsEmployee = true });
             ctx.SaveChanges();
             ctx.Profiles.Add(new Profile()
             {
