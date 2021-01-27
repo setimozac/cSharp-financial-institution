@@ -138,16 +138,16 @@ namespace FinancialInstitution.entities
             }
         }
 
-        private MarialStatusEnum _marialStatus;
-        public MarialStatusEnum MarialStatus
+        private MaritalStatusEnum _maritalStatus;
+        public MaritalStatusEnum MaritalStatus
         {
             get
             {
-                return _marialStatus;
+                return _maritalStatus;
             }
             set
             {
-                _marialStatus = value;
+                _maritalStatus = value;
             }
         }
 
@@ -173,7 +173,7 @@ namespace FinancialInstitution.entities
                 _sinNumber = value;
             }
         }
-
+        public virtual User User { get; set; }
 
     }
 
@@ -185,7 +185,7 @@ namespace FinancialInstitution.entities
         Other
     }
 
-    public enum MarialStatusEnum
+    public enum MaritalStatusEnum
     {
         Married,
         Single,

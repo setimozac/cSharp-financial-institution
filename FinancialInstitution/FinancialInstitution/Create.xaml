@@ -9,8 +9,47 @@
         BorderThickness="0"
         BorderBrush="White"
         Icon="/Images/create.png"
-        Title="Create" Height="750" Width="754">
+        Title="Create New Account" Height="750" Width="754">
     <Grid>
-        
+        <Button Name="BtnImage" Height="265" Width="253" Margin="478,12,15,441" Click="BtnImage_Click">
+            <Grid Height="265" Width="253">
+                <TextBlock Name="TbImage" Text="Click to pick picture" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Image Name="ImgCustomer" Stretch="UniformToFill"/>
+            </Grid>
+        </Button>
+        <Label Content="First Name:" HorizontalAlignment="Left" Height="30" Margin="25,25,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <TextBox Name="TbFirstName" HorizontalAlignment="Left" Height="30" Margin="143,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Middle Name:" HorizontalAlignment="Left" Height="30" Margin="25,75,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <TextBox Name="TbMiddleName" HorizontalAlignment="Left" Height="30" Margin="143,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Last Name:" HorizontalAlignment="Left" Height="30" Margin="25,125,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <TextBox Name="TbLastName" HorizontalAlignment="Left" Height="30" Margin="143,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Birth Date:" HorizontalAlignment="Left" Height="30" Margin="25,185,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <DatePicker Name="DpBirthDate" HorizontalAlignment="Left" Height="30" Margin="143,181,0,0" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Gender:" HorizontalAlignment="Left" Height="30" Margin="25,235,0,0" VerticalAlignment="Top" Width="55"/>
+        <ComboBox Name="CbGender" HorizontalAlignment="Left" Margin="91,235,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Marital status:" HorizontalAlignment="Left" Height="30" Margin="235,235,0,0" VerticalAlignment="Top" Width="85"/>
+        <ComboBox Name="CbMaritalStatus" HorizontalAlignment="Left" Margin="331,235,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Address:" HorizontalAlignment="Left" Height="30" Margin="25,295,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TbAddress" HorizontalAlignment="Left" Height="30" Margin="143,295,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Phone:" HorizontalAlignment="Left" Height="30" Margin="25,355,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TbPhone" HorizontalAlignment="Left" Height="30" Margin="143,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Height="30" Margin="24,415,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TbEmail" HorizontalAlignment="Left" Height="30" Margin="143,415,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <Label Content="SIN Number:" HorizontalAlignment="Left" Height="30" Margin="25,475,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TbSinNumber" HorizontalAlignment="Left" Height="30" Margin="143,475,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Account type:" HorizontalAlignment="Left" Height="30" Margin="25,525,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <CheckBox Name="CbChecking" Content="Checking" HorizontalAlignment="Left" Height="26" Margin="143,525,0,0" VerticalAlignment="Top" Width="102" VerticalContentAlignment="Center"/>
+        <CheckBox Name="CbSaving" Content="Saving" HorizontalAlignment="Left" Height="26" Margin="270,525,0,0" VerticalAlignment="Top" Width="102" VerticalContentAlignment="Center"/>
+        <CheckBox Name="CbTaxFreeSaving" Content="Tax free saving" HorizontalAlignment="Left" Height="26" Margin="385,525,0,0" VerticalAlignment="Top" Width="102" VerticalContentAlignment="Center"/>
+        <CheckBox Name="CbCredit" Content="Credit" HorizontalAlignment="Left" Height="26" Margin="520,525,0,0" VerticalAlignment="Top" Width="102" VerticalContentAlignment="Center"/>
+        <Button Name="BtnCreateCancel" Content="Cancel" HorizontalAlignment="Left" Height="44" Margin="188,611,0,0" VerticalAlignment="Top" Width="126" Click="BtnCreateCancel_Click"/>
+        <Button Name="BtnCreateSave" Content="Save" HorizontalAlignment="Left" Height="44" Margin="398,611,0,0" VerticalAlignment="Top" Width="126" Click="BtnCreateSave_Click"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Height="30" Margin="425,355,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TbPassword" HorizontalAlignment="Left" Height="30" Margin="523,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Pass code:" HorizontalAlignment="Left" Height="30" Margin="425,415,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TbPassCode" HorizontalAlignment="Left" Height="30" Margin="523,415,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Is employee?" HorizontalAlignment="Left" Height="30" Margin="425,475,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <RadioButton Name="RbIsEmployeeNo" Content="No" GroupName="IsEmployee" IsChecked="True" HorizontalAlignment="Left" Height="33" Margin="529,475,0,0" VerticalAlignment="Top" Width="62" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="RbIsEmployeeYes" Content="Yes" GroupName="IsEmployee" HorizontalAlignment="Left" Height="33" Margin="619,475,0,0" VerticalAlignment="Top" Width="62" VerticalContentAlignment="Center"/>
     </Grid>
 </Window>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FinancialInstitution.entities;
 using Innovative.SolarCalculator;
 
 namespace FinancialInstitution
@@ -38,14 +39,25 @@ namespace FinancialInstitution
         {
             if(IsLoggedIn)
             {
-                Create create = new Create();
+                User newUser = new User();
+                Create create = new Create(newUser);
                 TboxCreateUser.Foreground = Brushes.Gray;
                 create.Owner = this;
                 create.Left = this.Left + 247;
                 create.Top = this.Top;
                 create.Topmost = true;
 
-                create.ShowDialog();
+                create.RequestResult += u =>
+                {
+                    newUser = u;
+                };
+                bool? result = create.ShowDialog();
+                if (result == true)
+                {
+                    // Use database context to save the new user
+                    //ctx.Users.Add(newUser);
+                    //ctx.SaveChanges();
+                }
                 TboxCreateUser.Foreground = Brushes.White;
             }
             

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,5 +60,16 @@ namespace FinancialInstitution.entities
                 _isEmployee = value;
             }
         }
+
+        public User()
+        {
+            this.Profile = new Profile();
+            this.Accounts = new List<Account>();
+            this.Transactions = new List<Transaction>();
+        }
+
+        public virtual Profile Profile { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

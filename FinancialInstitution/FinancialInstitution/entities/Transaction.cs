@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinancialInstitution.entities
 {
-    class Transaction
+    public class Transaction
     {
         private int _transactionNumber;
         public int TransactionNumber
@@ -60,16 +60,16 @@ namespace FinancialInstitution.entities
             }
         }
 
-        private string _recieveraccountNumber;
+        private string _recieverAccountNumber;
         public string RecieverAccountNumber
         {
             get
             {
-                return _recieveraccountNumber;
+                return _recieverAccountNumber;
             }
             set
             {
-                _recieveraccountNumber = value;
+                _recieverAccountNumber = value;
             }
         }
 
@@ -95,5 +95,6 @@ namespace FinancialInstitution.entities
                 _amount = value;
             }
         }
+        public virtual User User { get; set; }
     }
 }

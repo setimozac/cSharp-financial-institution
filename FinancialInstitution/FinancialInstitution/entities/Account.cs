@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinancialInstitution.entities
 {
-    class Account
+    public class Account
     {
         private int _userId;
         public int UserId
@@ -70,6 +70,7 @@ namespace FinancialInstitution.entities
                 _balance = value;
             }
         }
+        public virtual User User { get; set; }
     }
 
     public enum AccountTypeEnum
@@ -77,6 +78,6 @@ namespace FinancialInstitution.entities
         Checking,
         Saving,
         TaxFreeSaving,
-        creadit
+        Credit
     }
 }
