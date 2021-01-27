@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FinancialInstitution.entities
 {
-    class Transaction
+    public class Transaction
     {
         private int _transactionNumber;
+
+        [Key]
         public int TransactionNumber
         {
             get
@@ -22,6 +26,9 @@ namespace FinancialInstitution.entities
         }
 
         private int _userId;
+
+        
+        [ForeignKey("User")]
         public int UserId
         {
             get
@@ -35,6 +42,8 @@ namespace FinancialInstitution.entities
         }
 
         private int _recieverUserId;
+
+        [ForeignKey("User2")]
         public int RecieverUserId
         {
             get
@@ -48,6 +57,8 @@ namespace FinancialInstitution.entities
         }
 
         private string _accountNumber;
+
+        [ForeignKey("Account")]
         public string AccountNumber
         {
             get
@@ -61,6 +72,8 @@ namespace FinancialInstitution.entities
         }
 
         private string _recieveraccountNumber;
+
+        [ForeignKey("Account2")]
         public string RecieverAccountNumber
         {
             get
@@ -74,6 +87,8 @@ namespace FinancialInstitution.entities
         }
 
         private DateTime _transactionDate;
+
+        [Required]
         public DateTime TransactionDate
         {
             get { return _transactionDate; }
@@ -84,6 +99,8 @@ namespace FinancialInstitution.entities
         }
 
         private double _amount;
+
+        [Required]
         public double Amount
         {
             get
@@ -95,5 +112,11 @@ namespace FinancialInstitution.entities
                 _amount = value;
             }
         }
+
+
+        public virtual Account Account { get; set; }
+        public virtual Account Account2 { get; set; }
+        public virtual User User { get; set; }
+        public virtual User User2 { get; set; }
     }
 }

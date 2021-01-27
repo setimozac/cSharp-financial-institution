@@ -46,3 +46,7 @@ C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial
 C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\bin\Debug\AForge.Video.DirectShow.xml
 C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\Camera.g.cs
 C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\obj\Debug\Camera.baml
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\bin\Debug\EntityFramework.dll
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\bin\Debug\EntityFramework.xml
+C:\Users\sizda\Desktop\programming\c#\assignments\final-project\cSharp-financial-institution\FinancialInstitution\FinancialInstitution\bin\Debug\EntityFramework.SqlServer.xml

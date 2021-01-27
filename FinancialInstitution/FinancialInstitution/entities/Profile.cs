@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +11,9 @@ namespace FinancialInstitution.entities
     public class Profile
     {
         private int _userId;
+
+        [Key]
+        [ForeignKey("User")]
         public int UserId
         {
             get
@@ -22,6 +27,9 @@ namespace FinancialInstitution.entities
         }
 
         private string _firstName;
+
+        [Required]
+        [StringLength(255)]
         public string FirstName
         {
             get
@@ -35,6 +43,8 @@ namespace FinancialInstitution.entities
         }
 
         private string _middleName;
+
+        [StringLength(255)]
         public string MiddleName
         {
             get
@@ -48,6 +58,9 @@ namespace FinancialInstitution.entities
         }
 
         private string _lastName;
+
+        [Required]
+        [StringLength(255)]
         public string LastName
         {
             get
@@ -61,6 +74,10 @@ namespace FinancialInstitution.entities
         }
 
         private string _email;
+
+        [Required]
+        [StringLength(255)]
+        [Index(IsUnique = true)]
         public string Email
         {
             get
@@ -74,6 +91,8 @@ namespace FinancialInstitution.entities
         }
 
         private int _age;
+
+        [Required]
         public int Age
         {
             get
@@ -87,6 +106,8 @@ namespace FinancialInstitution.entities
         }
 
         private string _phoneNumber;
+
+        [Required]
         public string PhoneNumber
         {
             get
@@ -100,6 +121,8 @@ namespace FinancialInstitution.entities
         }
 
         private string _adress;
+
+        [Required]
         public string Address
         {
             get
@@ -113,6 +136,8 @@ namespace FinancialInstitution.entities
         }
 
         private GenderEnum _gender;
+
+        
         public GenderEnum Gender
         {
             get
@@ -152,6 +177,8 @@ namespace FinancialInstitution.entities
         }
 
         private DateTime _dateOfBirth;
+
+        [Required]
         public DateTime DateOfBirth
         {
             get { return _dateOfBirth; }
@@ -162,6 +189,8 @@ namespace FinancialInstitution.entities
         }
 
         private string _sinNumber;
+
+        [Required]
         public string SinNumber
         {
             get
@@ -173,6 +202,9 @@ namespace FinancialInstitution.entities
                 _sinNumber = value;
             }
         }
+
+
+        public virtual User User { get; set; }
 
 
     }

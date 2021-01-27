@@ -119,7 +119,7 @@
             </ScrollViewer>
             </Border>
 
-            <TextBlock x:Name="TblEmpInfo" Text="Moe" Width="100" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="1" Margin="5"/>
+            <TextBlock x:Name="TblEmpInfo" Text="Mo" Width="100" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="1" Margin="5"/>
 
         </Grid>
 

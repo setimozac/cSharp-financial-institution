@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FinancialInstitution.entities;
 using Innovative.SolarCalculator;
 
 namespace FinancialInstitution
@@ -23,10 +24,35 @@ namespace FinancialInstitution
     {
         public bool IsLoggedIn = true;
         public Client LogedInClient = null;
+        DbContextDemo ctx = new DbContextDemo();
         public MainWindow()
         {
             InitializeComponent();
-            
+            /*ctx.Users.Add(new User() { Password = "abc123", PassCode = 1234, IsEmployee = true });
+            ctx.SaveChanges();
+            ctx.Profiles.Add(new Profile()
+            {
+                UserId = 1,
+                FirstName = "Moe",
+                MiddleName = "Mamal",
+                LastName = "Ghoreishi",
+                Email = "Sizdah@gmail.com",
+                Age = 38,
+                PhoneNumber = "5553460192",
+                Address = "Montreal",
+                Gender = GenderEnum.Male,
+                MarialStatus = MarialStatusEnum.Married,
+                DateOfBirth = DateTime.Today,
+                SinNumber = "123456789"
+            });
+            ctx.SaveChanges();
+            */
+
+            /*ctx.Accounts.Add(new Account() {UserId = 1, AccountNumber="4522698876", AccountType=AccountTypeEnum.Checking, CreatedDate=DateTime.Today, Balance=1000.00 });
+            ctx.SaveChanges();*/
+            /*TblEmpInfo.Text = ctx.Accounts.ToList<Account>()[0].AccountType.ToString();*/
+            /*ctx.Transactions.Add(new entities.Transaction() { UserId=1, RecieverUserId =1, AccountNumber= "4522698876", RecieverAccountNumber= "4522698876", TransactionDate=DateTime.Now, Amount=200.50 });
+            ctx.SaveChanges();*/
         }
 
         private void TextBlockHome_PreviewMouseDown(object sender, MouseButtonEventArgs e)
