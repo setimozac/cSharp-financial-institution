@@ -1,7 +1,9 @@
-﻿using System;
+﻿using FinancialInstitution.entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,9 +22,11 @@ namespace FinancialInstitution
     public partial class ClientInsertPassword : Window
     {
         private string InsertedPass = "";
-        public ClientInsertPassword()
+        private User User;
+        public ClientInsertPassword(User user)
         {
             InitializeComponent();
+            User = user;
         }
 
         private void ImageOne_MouseDown(object sender, MouseButtonEventArgs e)
@@ -124,11 +128,25 @@ namespace FinancialInstitution
 
         private void ImageOk_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (TboxPass.Text.Length == 4)
+            if (TboxPass.Text.Length == 4 && User.PassCode == int.Parse(InsertedPass))
             {
+                
                 TboxPass.Text = "Correct";
                 TboxPass.Foreground = Brushes.Green;
                 TboxPass.FontSize = 26;
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                DialogResult = true;
+            }
+            else
+            {
+                
+                TboxPass.Foreground = Brushes.Red;
+                TboxPass.FontSize = 26;
+                TboxPass.Text = "Incorrect Passcode!";
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                TboxPass.Text = "";
+                InsertedPass = "";
+                TboxPass.Foreground = Brushes.Black;
             }
         }
     }
