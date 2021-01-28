@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FinancialInstitution.entities;
 using FinancialInstitution.globals;
+using FinancialInstitution.services;
 using Innovative.SolarCalculator;
 
 namespace FinancialInstitution
@@ -24,6 +25,7 @@ namespace FinancialInstitution
     public partial class MainWindow : Window
     {
         public bool IsLoggedIn = true;
+        public User LoggedInEmp = null;
         public static User LogedInClient = null;
         
         public MainWindow()
@@ -65,7 +67,7 @@ namespace FinancialInstitution
 
         private void StPanelCreate_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(IsLoggedIn)
+            if(LoggedInEmp != null)
             {
                 Create create = new Create();
                 TboxCreateUser.Foreground = Brushes.Gray;
@@ -83,7 +85,7 @@ namespace FinancialInstitution
 
         private void FindAccount_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (IsLoggedIn)
+            if (LoggedInEmp != null)
             {
                 FindAnAccount findAnAccount = new FindAnAccount();
                 TboxFindAnAccount.Foreground = Brushes.Gray;
@@ -100,7 +102,7 @@ namespace FinancialInstitution
 
         private void StPanelUpdateAcount_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (IsLoggedIn && LogedInClient != null)
+            if (LoggedInEmp != null && LogedInClient != null)
             {
                 UpdateAccount updateAccount = new UpdateAccount();
                 TboxUpdateAcount.Foreground = Brushes.Gray;
@@ -118,7 +120,7 @@ namespace FinancialInstitution
 
         private void StPanelAccountDetails_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (IsLoggedIn && LogedInClient != null)
+            if (LoggedInEmp != null && LogedInClient != null)
             {
                 AccountDetails accountDetails = new AccountDetails();
                 TboxAccountDetails.Foreground = Brushes.Gray;
@@ -152,7 +154,7 @@ namespace FinancialInstitution
 
         private void MenuItemClientLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (IsLoggedIn)
+            if (LoggedInEmp != null)
             {
                 ClientInsertPassword clientPassword = new ClientInsertPassword(null);
                 TboxAccountDetails.Foreground = Brushes.Gray;
@@ -167,7 +169,7 @@ namespace FinancialInstitution
 
         private void StPanelTransaction_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (IsLoggedIn && LogedInClient != null)
+            if (LoggedInEmp != null && LogedInClient != null)
             {
                 Transaction transaction = new Transaction();
                 TboxTransaction.Foreground = Brushes.Gray;
@@ -190,8 +192,30 @@ namespace FinancialInstitution
             camera.ShowDialog();
         }
 
-        private void BtnSignIn_Click()
+
+        private void BtnSignIn_Click(object sender, RoutedEventArgs e)
         {
+            string email = TboxEmail.Text;
+            string pass = TboxPass.Password;
+            if (TboxEmail.Text.Trim() == "" || TboxPass.Password.Trim() == "")
+            {
+                email = "";
+                pass = "";
+                return;
+            }
+            
+            LoggedInEmp = (ProfileQueries.FetchEmployee(email, pass));
+            if(LoggedInEmp != null)
+            {
+                StkAuth.Visibility = Visibility.Hidden;
+                email = "";
+                pass = "";
+            }
+            else
+            {
+                MessageBox.Show("Email or Password is not correct!");               
+                pass = "";
+            }
 
         }
     }

@@ -107,16 +107,16 @@
             <StackPanel x:Name="StkAuth" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
                 <StackPanel Orientation="Horizontal" Margin="2">
                     <TextBlock Text="Email: " FontSize="20" Width="100"/>
-                    <TextBox Width="220"/>
+                    <TextBox x:Name="TboxEmail" Width="220"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="2">
                     <TextBlock Text="Password: " FontSize="20" Width="100"/>
-                    <TextBox Width="220"/>
+                    <PasswordBox x:Name="TboxPass" Width="220"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="2" Height="25">
-                    <Button Content="Sign In" Width="320" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF150202" Background="#FF045955" >
+                    <Button x:Name="BtnSignIn" Click="BtnSignIn_Click" Content="Sign In" Width="320" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF150202" Background="#FF045955" >
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="0,0,20,20"/>
