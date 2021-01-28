@@ -26,13 +26,14 @@ namespace FinancialInstitution
         private string _lastName = "";
         private string _email = "";
         private string _accountNumber = "";
+        private List<Profile> result;
         public FindAnAccount()
         {
             InitializeComponent();
         }
 
         private void TboxFirstName_KeyUp(object sender, KeyEventArgs e)
-        {
+       {
             _firstName = TboxFirstName.Text;
             RunQuery();
         }
@@ -57,18 +58,35 @@ namespace FinancialInstitution
 
         private void RunQuery()
         {
-            
-            /*var result = (from u in DbGlobals.ctx.Profiles
-                          where u.FirstName.Contains(_firstName) && u.LastName.Contains(_lastName) && u.Email.Contains(_email)
-                          select u).ToList();*/
-
-            var result2 = (from u in DbGlobals.ctx.Profiles join a in DbGlobals.ctx.Accounts on u.UserId equals a.UserId
-                          where u.FirstName.StartsWith(_firstName) && u.LastName.StartsWith(_lastName) && u.Email.StartsWith(_email) && a.AccountNumber.StartsWith(_accountNumber)
-                          select u).ToList();
 
             
-            MessageBox.Show(result2[0].Email); 
+            result = (from u in DbGlobals.ctx.Profiles
+                            join a in DbGlobals.ctx.Accounts on u.UserId equals a.UserId
+                            where u.FirstName.StartsWith(_firstName) && u.LastName.StartsWith(_lastName) && u.Email.StartsWith(_email) && a.AccountNumber.StartsWith(_accountNumber)
+                            select u).ToList();
 
+
+            LvUser.ItemsSource = result;
+            LvUser.Items.Refresh();
+                
+            if(_firstName == "" && _lastName == "" && _email == "" && _accountNumber == "")
+            {
+                result = null;
+                LvUser.ItemsSource = result;
+                LvUser.Items.Refresh();
+            }
+        }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if(LvUser.SelectedIndex == -1 || LvUser.SelectedItems.Count > 1)
+            {
+                MessageBox.Show("Please select one user!");
+                return;
+            }
+
+            MainWindow.LogedInClient = ((Profile)LvUser.SelectedItem).User;
+            DialogResult = true;
         }
     }
 }

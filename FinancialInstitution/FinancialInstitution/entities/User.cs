@@ -68,6 +68,8 @@ namespace FinancialInstitution.entities
             }
         }
 
+        public string AccountNum { get => $"number of Accounts: {Accounts.Count()}"; }
+
 
         public virtual ICollection<Account> Accounts { get; set; }
         public virtual Profile Profile { get; set; }

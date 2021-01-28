@@ -82,20 +82,20 @@
             </StackPanel>
         </StackPanel>
 
-        <ListView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="10">
+        <ListView x:Name="LvUser" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="10">
             <ListView.View >
                 <GridView>
-                    <GridViewColumn Header="ID" Width="30"/>
-                    <GridViewColumn Header="Account number" Width="120"/>
-                    <GridViewColumn Header="First name" Width="120"/>
-                    <GridViewColumn Header="Last name" Width="120"/>
-                    <GridViewColumn Header="Email" Width="120"/>
-                    <GridViewColumn Header="Phone number" Width="120"/>
+                    <GridViewColumn Header="ID" Width="30" DisplayMemberBinding="{Binding User.Id}"/>
+                    <GridViewColumn Header="Account(s) #" Width="120" DisplayMemberBinding="{Binding User.AccountNum}"/>
+                    <GridViewColumn Header="First name" Width="120" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Last name" Width="120" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Email" Width="120" DisplayMemberBinding="{Binding Email}"/>
+                    <GridViewColumn Header="Phone number" Width="120" DisplayMemberBinding="{Binding PhoneNumber}"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button Content="LOG IN " Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2"  Margin="3,3,10,20" Background="#FFACAC72" FontSize="16" FontWeight="Bold">
+        <Button x:Name="BtnLogin" Click="BtnLogin_Click" Content="LOG IN " Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2"  Margin="3,3,10,20" Background="#FFACAC72" FontSize="16" FontWeight="Bold">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="0,0,30,0"/>
