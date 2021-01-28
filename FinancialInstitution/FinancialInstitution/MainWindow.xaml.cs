@@ -74,7 +74,8 @@ namespace FinancialInstitution
                 create.Top = this.Top;
                 create.Topmost = true;
 
-                create.ShowDialog();
+                create.RequestResult += u => { LogedInClient = u; };
+                bool? createResult = create.ShowDialog();
                 TboxCreateUser.Foreground = Brushes.White;
             }
             
