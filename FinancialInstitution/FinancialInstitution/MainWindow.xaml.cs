@@ -189,5 +189,10 @@ namespace FinancialInstitution
 
             camera.ShowDialog();
         }
+
+        private void BtnSignIn_Click()
+        {
+
+        }
     }
 }

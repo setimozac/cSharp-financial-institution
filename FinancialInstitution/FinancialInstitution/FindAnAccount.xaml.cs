@@ -56,9 +56,9 @@ namespace FinancialInstitution
             RunQuery();
         }
 
+        
         private void RunQuery()
         {
-
             
             result = (from u in DbGlobals.ctx.Profiles
                             join a in DbGlobals.ctx.Accounts on u.UserId equals a.UserId
@@ -66,14 +66,13 @@ namespace FinancialInstitution
                             select u).ToList();
 
 
-            LvUser.ItemsSource = result;
-            LvUser.Items.Refresh();
-                
-            if(_firstName == "" && _lastName == "" && _email == "" && _accountNumber == "")
+            RefreshResult();
+
+
+            if (_firstName == "" && _lastName == "" && _email == "" && _accountNumber == "")
             {
                 result = null;
-                LvUser.ItemsSource = result;
-                LvUser.Items.Refresh();
+                RefreshResult();
             }
         }
 
@@ -95,6 +94,12 @@ namespace FinancialInstitution
                 DialogResult = true;
             }
             
+        }
+
+        private void RefreshResult()
+        {
+            LvUser.ItemsSource = result;
+            LvUser.Items.Refresh();
         }
     }
 }

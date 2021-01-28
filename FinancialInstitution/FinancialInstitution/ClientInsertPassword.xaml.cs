@@ -33,8 +33,12 @@ namespace FinancialInstitution
         {
             if(TboxPass.Text.Length < 4)
             {
-                TboxPass.Text += "*";
-                InsertedPass += "1";
+                insertHandler("1");
+            }
+            else
+            {
+                Reset();
+                insertHandler("1");
             }
             
         }
@@ -43,8 +47,12 @@ namespace FinancialInstitution
         {
             if (TboxPass.Text.Length < 4)
             {
-                TboxPass.Text += "*";
-                InsertedPass += "2";
+                insertHandler("2");
+            }
+            else
+            {
+                Reset();
+                insertHandler("2");
             }
         }
 
@@ -52,8 +60,12 @@ namespace FinancialInstitution
         {
             if (TboxPass.Text.Length < 4)
             {
-                TboxPass.Text += "*";
-                InsertedPass += "3";
+                insertHandler("3");
+            }
+            else
+            {
+                Reset();
+                insertHandler("3");
             }
         }
 
@@ -61,8 +73,12 @@ namespace FinancialInstitution
         {
             if (TboxPass.Text.Length < 5)
             {
-                TboxPass.Text += "*";
-                InsertedPass += "4";
+                insertHandler("4");
+            }
+            else
+            {
+                Reset();
+                insertHandler("4");
             }
         }
 
@@ -70,8 +86,12 @@ namespace FinancialInstitution
         {
             if (TboxPass.Text.Length < 5)
             {
-                TboxPass.Text += "*";
-                InsertedPass += "5";
+                insertHandler("5");
+            }
+            else
+            {
+                Reset();
+                insertHandler("5");
             }
         }
 
@@ -79,8 +99,12 @@ namespace FinancialInstitution
         {
             if (TboxPass.Text.Length < 5)
             {
-                TboxPass.Text += "*";
-                InsertedPass += "6";
+                insertHandler("6");
+            }
+            else
+            {
+                Reset();
+                insertHandler("6");
             }
         }
 
@@ -88,8 +112,12 @@ namespace FinancialInstitution
         {
             if (TboxPass.Text.Length < 5)
             {
-                TboxPass.Text += "*";
-                InsertedPass += "7";
+                insertHandler("7");
+            }
+            else
+            {
+                Reset();
+                insertHandler("7");
             }
         }
 
@@ -97,8 +125,12 @@ namespace FinancialInstitution
         {
             if (TboxPass.Text.Length < 5)
             {
-                TboxPass.Text += "*";
-                InsertedPass += "8";
+                insertHandler("8");
+            }
+            else
+            {
+                Reset();
+                insertHandler("8");
             }
         }
 
@@ -106,8 +138,12 @@ namespace FinancialInstitution
         {
             if (TboxPass.Text.Length < 5)
             {
-                TboxPass.Text += "*";
-                InsertedPass += "9";
+                insertHandler("9");
+            }
+            else
+            {
+                Reset();
+                insertHandler("9");
             }
         }
 
@@ -115,39 +151,56 @@ namespace FinancialInstitution
         {
             if (TboxPass.Text.Length < 5)
             {
-                TboxPass.Text += "*";
-                InsertedPass += "0";
+                insertHandler("0");
+            }
+            else
+            {
+                Reset();
+                insertHandler("0");
             }
         }
 
         private void ImageCancel_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            TboxPass.Text = "";
-            InsertedPass = "";
+            Reset();
         }
 
         private void ImageOk_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            
             if (TboxPass.Text.Length == 4 && User.PassCode == int.Parse(InsertedPass))
             {
                 
                 TboxPass.Text = "Correct";
                 TboxPass.Foreground = Brushes.Green;
                 TboxPass.FontSize = 26;
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                
                 DialogResult = true;
             }
             else
             {
                 
+                
                 TboxPass.Foreground = Brushes.Red;
                 TboxPass.FontSize = 26;
                 TboxPass.Text = "Incorrect Passcode!";
-                Thread.Sleep(TimeSpan.FromSeconds(1));
-                TboxPass.Text = "";
-                InsertedPass = "";
-                TboxPass.Foreground = Brushes.Black;
             }
+            
+        }
+
+        private void Reset()
+        {
+            
+            
+            TboxPass.Text = "";
+            InsertedPass = "";
+            TboxPass.Foreground = Brushes.Black;
+        }
+
+        private void insertHandler(string num)
+        {
+            TboxPass.Text += "*";
+            InsertedPass += $"{num}";
         }
     }
 }

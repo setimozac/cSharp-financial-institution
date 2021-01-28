@@ -64,7 +64,7 @@ namespace FinancialInstitution
         public static BitmapImage ByteArrayToBitmapImage(byte[] currentImage)
         {
             var newImage = new BitmapImage();
-            using (var ms = new MemoryStream(currentImage))
+            using ( var ms = new MemoryStream(currentImage))
             {
                 newImage.BeginInit();
                 newImage.CacheOption = BitmapCacheOption.OnLoad;
