@@ -32,7 +32,7 @@ namespace FinancialInstitution
         {
             InitializeComponent();
             DbGlobals.ctx = new DbContextDemo();
-
+            ResetContent();
             /*DbGlobals.ctx.Users.Add(new User() { Password = "abc123", PassCode = 1234, IsEmployee = true });
             DbGlobals.ctx.SaveChanges();
             DbGlobals.ctx.Profiles.Add(new Profile()
@@ -58,6 +58,16 @@ namespace FinancialInstitution
             TblEmpInfo.Text = DbGlobals.ctx.Accounts.ToList<Account>()[0].AccountType.ToString();
             DbGlobals.ctx.Transactions.Add(new entities.Transaction() { UserId = 1, RecieverUserId = 1, AccountNumber = "4522698876", RecieverAccountNumber = "4522698876", TransactionDate = DateTime.Now, Amount = 200.50 });
             DbGlobals.ctx.SaveChanges();*/
+        }
+
+        private void ResetContent()
+        {
+            BtnEmpSignOut.Visibility = Visibility.Hidden;
+            BtnClientSignOut.Visibility = Visibility.Hidden;
+            StkAuth.Visibility = Visibility.Visible;
+            TblEmpInfo.Text = "";
+            TboxEmail.Text = "";
+            TboxPass.Password = "";
         }
 
         private void TextBlockHome_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -94,8 +104,13 @@ namespace FinancialInstitution
                 findAnAccount.Top = this.Top;
                 findAnAccount.Topmost = true;
 
-                findAnAccount.ShowDialog();
+                var result = findAnAccount.ShowDialog();
                 TboxFindAnAccount.Foreground = Brushes.White;
+                if(result == true)
+                {
+                    BtnClientSignOut.Visibility = Visibility.Visible;
+                    TblClientInfo.Text = LogedInClient.Profile.FirstName;
+                }
             }
                 
         }
@@ -210,6 +225,8 @@ namespace FinancialInstitution
                 StkAuth.Visibility = Visibility.Hidden;
                 email = "";
                 pass = "";
+                TblEmpInfo.Text = LoggedInEmp.Profile.Email;
+                BtnEmpSignOut.Visibility = Visibility.Visible;
             }
             else
             {
@@ -217,6 +234,19 @@ namespace FinancialInstitution
                 pass = "";
             }
 
+        }
+
+        private void BtnEmpSignOut_Click(object sender, RoutedEventArgs e)
+        {
+            ResetContent();
+            LoggedInEmp = null;
+        }
+
+        private void BtnClientSignOut_Click(object sender, RoutedEventArgs e)
+        {
+            LogedInClient = null;
+            BtnClientSignOut.Visibility = Visibility.Hidden;
+            TblClientInfo.Text = "";
         }
     }
 }
