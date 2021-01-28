@@ -11,7 +11,30 @@
         Icon="/Images/create.png"
         Title="Update Account" Height="750" Width="754">
     <Grid>
-        
+        <Label Content="Customer Information:" HorizontalAlignment="Left" Height="33" Margin="87,17,0,0" VerticalAlignment="Top" Width="141" RenderTransformOrigin="0.922,0.424" FontWeight="Bold"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Height="30" Margin="42,77,0,0" VerticalAlignment="Top" Width="54"/>
+        <Label Name="LblCustomerName" Content="name" HorizontalAlignment="Left" Height="30" Margin="117,77,0,0" VerticalAlignment="Top" Width="233"/>
+        <Label Content="Open date:" HorizontalAlignment="Left" Height="30" Margin="390,77,0,0" VerticalAlignment="Top" Width="82"/>
+        <Label Name="LblOpenDate" Content="date" HorizontalAlignment="Left" Height="30" Margin="500,77,0,0" VerticalAlignment="Top" Width="199"/>
+        <GroupBox Header="Account type:" HorizontalAlignment="Left" Height="68" Margin="93,136,0,0" VerticalAlignment="Top" Width="574">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <CheckBox Name="CkbChecking" Content="Checking" Width="100" Margin="30,0,0,0"/>
+                <CheckBox Name="CkbSaving" Content="Saving" Width="100"/>
+                <CheckBox Name="CkbTaxFreeSaving" Content="Tax free saving" Width="150"/>
+                <CheckBox Name="CkbCredit" Content="Credit" Width="100"/>
+            </StackPanel>
+        </GroupBox>
+        <ListView Name="LvUpdateAccount" HorizontalAlignment="Left" Height="271" Margin="0,249,0,0" VerticalAlignment="Top" Width="745">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Account Number" Width="150" DisplayMemberBinding="{Binding AccountNumber}"/>
+                    <GridViewColumn Header="Account Type" Width="150" DisplayMemberBinding="{Binding AccountType}"/>
+                    <GridViewColumn Header="Balance" Width="150" DisplayMemberBinding="{Binding Balance}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="BtnUpdateAccountCancel" Content="Cancel" HorizontalAlignment="Left" Height="48" Margin="173,571,0,0" VerticalAlignment="Top" Width="125" Click="BtnUpdateAccountCancel_Click"/>
+        <Button Name="BtnUpdateAccountUpdate" Content="Update" HorizontalAlignment="Left" Height="48" Margin="383,571,0,0" VerticalAlignment="Top" Width="125" Click="BtnUpdateAccountUpdate_Click"/>
 
     </Grid>
 </Window>

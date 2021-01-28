@@ -182,7 +182,7 @@ namespace FinancialInstitution
                 {
                     _currentPerson.Accounts.Add(new Account
                     {
-                        AccountNumber = _currentPerson.Profile.FirstName.ToUpper() + string.Format("{0:F0}",(new Random(10).NextDouble())*10000000),
+                        AccountNumber = _currentPerson.Profile.FirstName.ToUpper() + string.Format("{0:F0}",(new Random(1).NextDouble())*10000000),
                         CreatedDate = DateTime.Now,
                         AccountType = AccountTypeEnum.Checking,
                         Balance = 0,
@@ -208,7 +208,7 @@ namespace FinancialInstitution
                 {
                     _currentPerson.Accounts.Add(new Account
                     {
-                        AccountNumber = _currentPerson.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(10).NextDouble()) * 10000000),
+                        AccountNumber = _currentPerson.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(100).NextDouble()) * 10000000),
                         CreatedDate = DateTime.Now,
                         AccountType = AccountTypeEnum.TaxFreeSaving,
                         Balance = 0,
@@ -221,7 +221,7 @@ namespace FinancialInstitution
                 {
                     _currentPerson.Accounts.Add(new Account
                     {
-                        AccountNumber = _currentPerson.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(10).NextDouble()) * 10000000),
+                        AccountNumber = _currentPerson.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(1000).NextDouble()) * 10000000),
                         CreatedDate = DateTime.Now,
                         AccountType = AccountTypeEnum.Credit,
                         Balance = 0,
