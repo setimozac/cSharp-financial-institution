@@ -37,7 +37,7 @@ namespace FinancialInstitution
             DbGlobals.ctx.SaveChanges();
             DbGlobals.ctx.Profiles.Add(new Profile()
             {
-                UserId = 1,
+                UserId = 2,
                 FirstName = "Moe",
                 MiddleName = "Mo",
                 LastName = "Ghoreishi",
