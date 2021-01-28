@@ -30,32 +30,32 @@ namespace FinancialInstitution
         {
             InitializeComponent();
             DbGlobals.ctx = new DbContextDemo();
-            /*
-             * ctx.Users.Add(new User() { Password = "abc123", PassCode = 1234, IsEmployee = true });
-            ctx.SaveChanges();
-            ctx.Profiles.Add(new Profile()
+
+            /*DbGlobals.ctx.Users.Add(new User() { Password = "abc123", PassCode = 1234, IsEmployee = true });
+            DbGlobals.ctx.SaveChanges();
+            DbGlobals.ctx.Profiles.Add(new Profile()
             {
                 UserId = 1,
                 FirstName = "Moe",
-                MiddleName = "Mamal",
+                MiddleName = "Mo",
                 LastName = "Ghoreishi",
                 Email = "Sizdah@gmail.com",
                 Age = 38,
                 PhoneNumber = "5553460192",
                 Address = "Montreal",
                 Gender = GenderEnum.Male,
-                MarialStatus = MarialStatusEnum.Married,
+                MaritalStatus = MaritalStatusEnum.Married,
                 DateOfBirth = DateTime.Today,
                 SinNumber = "123456789"
             });
-            ctx.SaveChanges();
-            */
+            DbGlobals.ctx.SaveChanges();
 
-            /*ctx.Accounts.Add(new Account() {UserId = 1, AccountNumber="4522698876", AccountType=AccountTypeEnum.Checking, CreatedDate=DateTime.Today, Balance=1000.00 });
-            ctx.SaveChanges();*/
-            /*TblEmpInfo.Text = ctx.Accounts.ToList<Account>()[0].AccountType.ToString();*/
-            /*ctx.Transactions.Add(new entities.Transaction() { UserId=1, RecieverUserId =1, AccountNumber= "4522698876", RecieverAccountNumber= "4522698876", TransactionDate=DateTime.Now, Amount=200.50 });
-            ctx.SaveChanges();*/
+
+            DbGlobals.ctx.Accounts.Add(new Account() { UserId = 1, AccountNumber = "4522698876", AccountType = AccountTypeEnum.Checking, CreatedDate = DateTime.Today, Balance = 1000.00 });
+            DbGlobals.ctx.SaveChanges();
+            TblEmpInfo.Text = DbGlobals.ctx.Accounts.ToList<Account>()[0].AccountType.ToString();
+            DbGlobals.ctx.Transactions.Add(new entities.Transaction() { UserId = 1, RecieverUserId = 1, AccountNumber = "4522698876", RecieverAccountNumber = "4522698876", TransactionDate = DateTime.Now, Amount = 200.50 });
+            DbGlobals.ctx.SaveChanges();*/
         }
 
         private void TextBlockHome_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -154,7 +154,7 @@ namespace FinancialInstitution
         {
             if (IsLoggedIn)
             {
-                ClientInsertPassword clientPassword = new ClientInsertPassword();
+                ClientInsertPassword clientPassword = new ClientInsertPassword(null);
                 TboxAccountDetails.Foreground = Brushes.Gray;
                 clientPassword.Owner = this;
                 clientPassword.Left = this.Left + 247;

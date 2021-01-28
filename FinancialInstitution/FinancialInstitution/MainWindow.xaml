@@ -104,6 +104,33 @@
 
             </Menu>
 
+            <StackPanel x:Name="StkAuth" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal" Margin="2">
+                    <TextBlock Text="Email: " FontSize="20" Width="100"/>
+                    <TextBox Width="220"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="2">
+                    <TextBlock Text="Password: " FontSize="20" Width="100"/>
+                    <TextBox Width="220"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="2" Height="25">
+                    <Button Content="Sign In" Width="320" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF150202" Background="#FF045955" >
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="0,0,20,20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical" Margin="5">
+                <TextBlock x:Name="TblEmpInfo" Text="" Width="160" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="1" Margin="5"/>
+                <TextBlock x:Name="TblClientInfo" Text="" Width="160" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="1" Margin="5"/>
+            </StackPanel>
+
             <Border  Grid.ColumnSpan="4" Grid.Row="4" Grid.RowSpan="4" Margin="10,10"  Height="400" BorderThickness="3" BorderBrush="Gray" CornerRadius="5">
             <ScrollViewer Grid.Column="0" Opacity="0.8">
                 <StackPanel Orientation="Vertical">
@@ -119,7 +146,7 @@
             </ScrollViewer>
             </Border>
 
-            <TextBlock x:Name="TblEmpInfo" Text="Mo" Width="100" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="1" Margin="5"/>
+            
 
         </Grid>
 
