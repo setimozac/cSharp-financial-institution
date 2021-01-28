@@ -27,6 +27,7 @@ namespace FinancialInstitution
         private string _email = "";
         private string _accountNumber = "";
         private List<Profile> result;
+        private HashSet<Profile> uniqeItems;
         public FindAnAccount()
         {
             InitializeComponent();
@@ -65,13 +66,14 @@ namespace FinancialInstitution
                             where u.FirstName.StartsWith(_firstName) && u.LastName.StartsWith(_lastName) && u.Email.StartsWith(_email) && a.AccountNumber.StartsWith(_accountNumber)
                             select u).ToList();
 
-
+            uniqeItems = new HashSet<Profile>(result);
             RefreshResult();
 
 
             if (_firstName == "" && _lastName == "" && _email == "" && _accountNumber == "")
             {
                 result = null;
+                uniqeItems = null;
                 RefreshResult();
             }
         }
@@ -98,7 +100,8 @@ namespace FinancialInstitution
 
         private void RefreshResult()
         {
-            LvUser.ItemsSource = result;
+            /*LvUser.ItemsSource = result;*/
+            LvUser.ItemsSource = uniqeItems;
             LvUser.Items.Refresh();
         }
     }
