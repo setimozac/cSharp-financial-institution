@@ -153,7 +153,7 @@ namespace FinancialInstitution
         {
             if (IsLoggedIn)
             {
-                ClientInsertPassword clientPassword = new ClientInsertPassword();
+                ClientInsertPassword clientPassword = new ClientInsertPassword(null);
                 TboxAccountDetails.Foreground = Brushes.Gray;
                 clientPassword.Owner = this;
                 clientPassword.Left = this.Left + 247;

@@ -84,9 +84,17 @@ namespace FinancialInstitution
                 MessageBox.Show("Please select one user!");
                 return;
             }
-
-            MainWindow.LogedInClient = ((Profile)LvUser.SelectedItem).User;
-            DialogResult = true;
+            this.Topmost = false;
+            User user = ((Profile)LvUser.SelectedItem).User;
+            ClientInsertPassword clientInsertPassword = new ClientInsertPassword(user);
+            clientInsertPassword.Owner = this;
+            clientInsertPassword.ShowDialog();
+            if (clientInsertPassword.DialogResult == true)
+            {
+                MainWindow.LogedInClient = user;
+                DialogResult = true;
+            }
+            
         }
     }
 }
