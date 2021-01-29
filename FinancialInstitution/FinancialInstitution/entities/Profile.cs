@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinancialInstitution.exceptions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -101,6 +102,10 @@ namespace FinancialInstitution.entities
             }
             set
             {
+                if(value < 0 || value > 150)
+                {
+                    throw new CustomInvalidDataException("Invalid age");
+                }
                 _age = value;
             }
         }
