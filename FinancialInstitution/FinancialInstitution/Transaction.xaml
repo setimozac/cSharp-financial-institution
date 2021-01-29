@@ -11,6 +11,39 @@
         Icon="/Images/create.png"
         Title="Transaction" Height="750" Width="754">
     <Grid>
-        
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="24,9,0,0" VerticalAlignment="Top" Width="55"/>
+        <Label Name="LblCustomerName" Content="" HorizontalAlignment="Left" Margin="101,9,0,0" VerticalAlignment="Top" Width="157"/>
+        <Label Content="User Id:" HorizontalAlignment="Left" Margin="300,9,0,0" VerticalAlignment="Top" Width="55"/>
+        <Label Name="LblUserId" Content="" HorizontalAlignment="Left" Margin="360,9,0,0" VerticalAlignment="Top" Width="157"/>
+        <Label Content="From your account:" HorizontalAlignment="Left" Margin="120,47,0,0" VerticalAlignment="Top" Width="140" HorizontalContentAlignment="right"/>
+        <ComboBox Name="CbFromAccount" HorizontalAlignment="Left" Margin="280,47,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CbFromAccount_SelectionChanged"/>
+        <Label Content="Balance:" HorizontalAlignment="Left" Margin="440,47,0,0" VerticalAlignment="Top"/>
+        <Label Name="LBalanceOfFromAccount" Content="" HorizontalAlignment="Left" Margin="510,47,0,0" VerticalAlignment="Top" Width="147"/>
+        <Label Content="Amount:" HorizontalAlignment="Left" Margin="120,87,0,0" VerticalAlignment="Top" Width="140" HorizontalContentAlignment="right"/>
+        <TextBox Name="TbAmount" HorizontalAlignment="Left" Height="23" Margin="280,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Name="BtnTransactionDeposit" Content="Deposit" HorizontalAlignment="Left" Height="37" Margin="225,134,0,0" VerticalAlignment="Top" Width="115" Click="BtnTransactionDeposit_Click"/>
+        <Button Name="BtnTransactionWithdraw" Content="Withdraw" HorizontalAlignment="Left" Height="37" Margin="420,135,0,0" VerticalAlignment="Top" Width="115" Click="BtnTransactionWithdraw_Click"/>
+        <RadioButton Name="RbToYourAccount" Content="" GroupName="ToAccount" HorizontalAlignment="Left" Margin="95,215,0,0" VerticalAlignment="Top" Checked="RbToYourAccount_Checked"/>
+        <Label Content="To your account:" HorizontalAlignment="Left" Margin="120,207,0,0" VerticalAlignment="Top" Width="140" HorizontalContentAlignment="right"/>
+        <ComboBox Name="CbToAccount" IsEnabled="False" HorizontalAlignment="Left" Margin="280,207,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CbToAccount_SelectionChanged"/>
+        <Label Content="Balance:" HorizontalAlignment="Left" Margin="440,207,0,0" VerticalAlignment="Top"/>
+        <Label Name="LBalanceOfToAccount" Content="" HorizontalAlignment="Left" Margin="510,207,0,0" VerticalAlignment="Top" Width="76"/>
+        <RadioButton x:Name="RbToOtherUserAccount" Content="" GroupName="ToAccount" HorizontalAlignment="Left" Margin="95,265,0,0" VerticalAlignment="Top" Checked="RbToOtherUserAccount_Checked"/>
+        <Label Content="To other user's account:" HorizontalAlignment="Left" Margin="120,257,0,0" VerticalAlignment="Top" Width="140" HorizontalContentAlignment="right"/>
+        <TextBox x:Name="TbToOtherAccount" HorizontalAlignment="Left" Height="23" Margin="280,259,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Name="BtnTransactionCancel" Content="Cancel" HorizontalAlignment="Left" Height="41" Margin="225,313,0,0" VerticalAlignment="Top" Width="115" Click="BtnTransactionCancel_Click"/>
+        <Button Name="BtnTransactionTransfer" Content="Transfer" HorizontalAlignment="Left" Height="37" Margin="420,315,0,0" VerticalAlignment="Top" Width="115" Click="BtnTransactionTransfer_Click"/>
+        <ListView Name="LvTransaction" HorizontalAlignment="Left" Height="307" Margin="53,388,0,0" VerticalAlignment="Top" Width="630">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Account Number" Width="150" DisplayMemberBinding="{Binding AccountNumber}"/>
+                    <GridViewColumn Header="Reciever Account Number" Width="150" DisplayMemberBinding="{Binding RecieverAccountNumber}"/>
+                    <GridViewColumn Header="Amount" Width="150" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Header="Transaction Date" Width="150" DisplayMemberBinding="{Binding TransactionDate}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
     </Grid>
 </Window>
