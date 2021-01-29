@@ -113,6 +113,18 @@ namespace FinancialInstitution.entities
             }
         }
 
+        [NotMapped]
+        public string ShowRecieverAccount
+        {
+            get => RecieverAccountNumber + " - " + Account2.AccountType.ToString();
+        }
+
+        [NotMapped]
+        public string ShowAccount
+        {
+            get => AccountNumber + " - " + Account.AccountType.ToString();
+        }
+
 
         public virtual Account Account { get; set; }
         public virtual Account Account2 { get; set; }

@@ -195,7 +195,7 @@ namespace FinancialInstitution
             DbGlobals.ctx.Users.AddOrUpdate(_currentUserProfile);
             DbGlobals.ctx.SaveChanges();
             AccountDetailsRequestResult?.Invoke(_currentUserProfile);
-            DialogResult = true;
+            /*DialogResult = true;*/
         }
     }
 }

@@ -36,10 +36,10 @@ namespace FinancialInstitution.entities
             }
             set
             {
-                /*if(!EntitiesValidations.ValidatePassword(value))
+                if (!EntitiesValidations.ValidatePassword(value))
                 {
                     throw new CustomInvalidDataException("password format: Minimum eight characters, at least one letter and one number");
-                }*/
+                }
                 _password = value;
             }
         }

@@ -1,4 +1,5 @@
 ﻿using FinancialInstitution.exceptions;
+using FinancialInstitution.services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -39,6 +40,10 @@ namespace FinancialInstitution.entities
             }
             set
             {
+                if (!EntitiesValidations.ValidateName(value))
+                {
+                    throw new CustomInvalidDataException("First name is not valid");
+                }
                 _firstName = value;
             }
         }
@@ -54,6 +59,10 @@ namespace FinancialInstitution.entities
             }
             set
             {
+                /*if (!EntitiesValidations.ValidateName(value))
+                {
+                    throw new CustomInvalidDataException("Middle name is not valid");
+                }*/
                 _middleName = value;
             }
         }
@@ -70,6 +79,10 @@ namespace FinancialInstitution.entities
             }
             set
             {
+                if (!EntitiesValidations.ValidateName(value))
+                {
+                    throw new CustomInvalidDataException("Last name is not valid");
+                }
                 _lastName = value;
             }
         }
@@ -87,6 +100,10 @@ namespace FinancialInstitution.entities
             }
             set
             {
+                if (!EntitiesValidations.ValidateEmail(value))
+                {
+                    throw new CustomInvalidDataException("Email address is not valid");
+                }
                 _email = value;
             }
         }
@@ -121,6 +138,10 @@ namespace FinancialInstitution.entities
             }
             set
             {
+                if (!EntitiesValidations.ValidatePhoneNumber(value))
+                {
+                    throw new CustomInvalidDataException("Phone number is not valid");
+                }
                 _phoneNumber = value;
             }
         }
@@ -204,6 +225,10 @@ namespace FinancialInstitution.entities
             }
             set
             {
+                if (!EntitiesValidations.ValidateSinNumber(value))
+                {
+                    throw new CustomInvalidDataException("SIN number is not valid");
+                }
                 _sinNumber = value;
             }
         }

@@ -88,7 +88,7 @@ namespace FinancialInstitution
 
         private bool Calculate(string op, ComboBox comboBox, User user)
         {
-            if (double.TryParse(TbAmount.Text, out double amount))
+            if (double.TryParse(TbAmount.Text, out double amount) && amount > 0)
             {
                 foreach (var account in user.Accounts)
                 {
@@ -127,7 +127,7 @@ namespace FinancialInstitution
             }
             else
             {
-                MessageBox.Show("Amount must be a number");
+                MessageBox.Show("Amount must be a positive number");
                 return false;
             }
         }
@@ -235,7 +235,12 @@ namespace FinancialInstitution
                     }
                     else if (RbToOtherUserAccount.IsChecked == true)
                     {
+                        /*if ((!double.TryParse(TbAmount.Text, out double amount) || amount <= 0))
+                        {
+                            MessageBox.Show("amount must be positive number");
+                        }*/
                         if (_fromAccountNumber != TbToOtherAccount.Text)
+
                         {
                             List<Account> result = null;
                             string tempAccountNumb = TbToOtherAccount.Text;

@@ -82,88 +82,32 @@ namespace FinancialInstitution
 
         private void BtnCreateSave_Click(object sender, RoutedEventArgs e)
         {
-            if (TbFirstName.Text != "")
+            
+
+            try
             {
                 _currentPerson.Profile.FirstName = TbFirstName.Text;
-            }
-            else
-            {
-                MessageBox.Show("First name must be filled", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            _currentPerson.Profile.MiddleName = TbMiddleName.Text;
-
-            if (TbLastName.Text != "")
-            {
                 _currentPerson.Profile.LastName = TbLastName.Text;
-            }
-            else
-            {
-                MessageBox.Show("Last name must be filled", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (DateTime.TryParse(DpBirthDate.Text, out DateTime birthDate))
-            {
-                _currentPerson.Profile.DateOfBirth = birthDate;
-            }
-            else
-            {
-                MessageBox.Show("Select the birth date", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            _currentPerson.Profile.Gender = (GenderEnum)CbGender.SelectedItem;
-            _currentPerson.Profile.MaritalStatus = (MaritalStatusEnum)CbMaritalStatus.SelectedItem;
-
-            if (TbAddress.Text != "")
-            {
+                if (DateTime.TryParse(DpBirthDate.Text, out DateTime birthDate))
+                {
+                    _currentPerson.Profile.DateOfBirth = birthDate;
+                }
+                else
+                {
+                    MessageBox.Show("Select the birth date", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                _currentPerson.Profile.Gender = (GenderEnum)CbGender.SelectedItem;
+                _currentPerson.Profile.MaritalStatus = (MaritalStatusEnum)CbMaritalStatus.SelectedItem;
                 _currentPerson.Profile.Address = TbAddress.Text;
-            }
-            else
-            {
-                MessageBox.Show("Address must be filled", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (TbPhone.Text != "")
-            {
                 _currentPerson.Profile.PhoneNumber = TbPhone.Text;
-            }
-            else
-            {
-                MessageBox.Show("Phone must be filled", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (TbEmail.Text != "")
-            {
                 _currentPerson.Profile.Email = TbEmail.Text;
-            }
-            else
-            {
-                MessageBox.Show("Email must be filled", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (TbEmail.Text != "")
-            {
-                _currentPerson.Profile.Email = TbEmail.Text;
-            }
-            else
-            {
-                MessageBox.Show("Email must be filled", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (TbSinNumber.Text != "")
-            {
                 _currentPerson.Profile.SinNumber = TbSinNumber.Text;
+
             }
-            else
+            catch(CustomInvalidDataException ex)
             {
-                MessageBox.Show("SIN number must be filled", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(ex.Message);
                 return;
             }
 
@@ -233,15 +177,15 @@ namespace FinancialInstitution
             }
 
             _currentPerson.PassCode = 1234;
-            _currentPerson.Password = "1234";
+            _currentPerson.Password = "123456789a";
             _currentPerson.IsEmployee = false;
             _currentPerson.Transactions = new List<entities.Transaction>();
             
             DbGlobals.ctx = new DbContextDemo();
             DbGlobals.ctx.Users.Add(_currentPerson);
             DbGlobals.ctx.SaveChanges();
-
-            RequestResult?.Invoke(_currentPerson);
+            MainWindow.LogedInClient = _currentPerson;
+            /*RequestResult?.Invoke(_currentPerson);*/
             DialogResult = true;
         }
     }
