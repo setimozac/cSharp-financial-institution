@@ -290,5 +290,26 @@ namespace FinancialInstitution
                 MessageBox.Show("Please select a From Account");
             }
         }
+
+        private void MenuItemExit_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
+
+        private void MenueItemCalendar_Click(object sender, RoutedEventArgs e)
+        {
+            Calendar calendar = new Calendar();
+            calendar.Owner = this;
+            calendar.Left = this.Left + 700;
+            calendar.Top = this.Top;
+
+            calendar.ShowDialog();
+        }
+
+        private void MenueItemCalculator_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process p = System.Diagnostics.Process.Start("calc.exe");
+            p.WaitForInputIdle();
+        }
     }
 }

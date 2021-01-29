@@ -107,6 +107,7 @@
     <Compile Include="exceptions\CustomInvalidDataException.cs" />
     <Compile Include="globals\DbGlobals.cs" />
     <Compile Include="services\EntitiesValidations.cs" />
+    <Compile Include="services\GenerateRandoms.cs" />
     <Compile Include="services\ProfileQueries.cs" />
     <Compile Include="Transaction.xaml.cs">
       <DependentUpon>Transaction.xaml</DependentUpon>
