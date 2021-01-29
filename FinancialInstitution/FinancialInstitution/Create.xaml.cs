@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using FinancialInstitution.entities;
 using FinancialInstitution.exceptions;
 using FinancialInstitution.globals;
+using FinancialInstitution.services;
 using Microsoft.Win32;
 
 namespace FinancialInstitution
@@ -177,7 +178,7 @@ namespace FinancialInstitution
             }
 
             _currentPerson.PassCode = 1234;
-            _currentPerson.Password = "123456789a";
+            _currentPerson.Password = GenerateRandoms.PasswordRandomString();
             _currentPerson.IsEmployee = false;
             _currentPerson.Transactions = new List<entities.Transaction>();
             
@@ -187,6 +188,35 @@ namespace FinancialInstitution
             MainWindow.LogedInClient = _currentPerson;
             /*RequestResult?.Invoke(_currentPerson);*/
             DialogResult = true;
+        }
+
+        private void MenueItemCalendar_Click(object sender, RoutedEventArgs e)
+        {
+            Calendar calendar = new Calendar();
+            calendar.Owner = this;
+            calendar.Left = this.Left + 700;
+            calendar.Top = this.Top;
+
+            calendar.ShowDialog();
+        }
+
+        private void MenueItemCalculator_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process p = System.Diagnostics.Process.Start("calc.exe");
+            p.WaitForInputIdle();
+        }
+
+        private void MenueItemTakePhoto_Click(object sender, RoutedEventArgs e)
+        {
+            Camera camera = new Camera();
+            camera.Owner = this;
+
+            camera.ShowDialog();
+        }
+
+        private void MenuItemExit_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
         }
     }
 }

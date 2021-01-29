@@ -11,6 +11,44 @@
         Icon="/Images/create.png"
         Title="Create New Account" Height="750" Width="754">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu DockPanel.Dock="Top"  Grid.Row="0">
+            <MenuItem Header="File" Width="60">
+                <MenuItem x:Name="MenuItemExit" Click="MenuItemExit_Click" Header="Exit">
+
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Authentication" Width="100" IsEnabled="False">
+                <MenuItem x:Name="MenuItemEmpLogin" Header="Employee Login" >
+                    <MenuItem.Icon >
+                        <Image Source="/Images/employee-icon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MenuItemClientLogin"  Header="Client password">
+                    <MenuItem.Icon >
+                        <Image Source="/Images/dial.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="MenuItemEmpLogout" Header="Employee Logout" >
+                    <MenuItem.Icon >
+                        <Image Source="/Images/employee-icon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Tools" Width="60">
+                <MenuItem x:Name="MenueItemCalendar" Click="MenueItemCalendar_Click"   Header="Calendar"/>
+                <MenuItem x:Name="MenueItemCalculator" Click="MenueItemCalculator_Click"   Header="Calculator"/>
+                <MenuItem x:Name="MenueItemTakePhoto" Click="MenueItemTakePhoto_Click"  Header="Take Photo"/>
+            </MenuItem>
+
+        </Menu>
+        <Grid Grid.Row="1">
         <Button Name="BtnImage" Height="265" Width="253" Margin="478,12,15,441" Click="BtnImage_Click">
             <Grid Height="265" Width="253">
                 <TextBlock Name="TbImage" Text="Click to pick picture" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -44,5 +82,6 @@
         <CheckBox Name="CbCredit" Content="Credit" HorizontalAlignment="Left" Height="26" Margin="520,525,0,0" VerticalAlignment="Top" Width="102" VerticalContentAlignment="Center"/>
         <Button Name="BtnCreateCancel" Content="Cancel" HorizontalAlignment="Left" Height="44" Margin="188,611,0,0" VerticalAlignment="Top" Width="126" Click="BtnCreateCancel_Click"/>
         <Button Name="BtnCreateSave" Content="Save" HorizontalAlignment="Left" Height="44" Margin="398,611,0,0" VerticalAlignment="Top" Width="126" Click="BtnCreateSave_Click"/>
+        </Grid>
     </Grid>
 </Window>
