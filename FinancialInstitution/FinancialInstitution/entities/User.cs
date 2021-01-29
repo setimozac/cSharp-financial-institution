@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinancialInstitution.exceptions;
+using FinancialInstitution.services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -34,6 +36,10 @@ namespace FinancialInstitution.entities
             }
             set
             {
+                /*if(!EntitiesValidations.ValidatePassword(value))
+                {
+                    throw new CustomInvalidDataException("password format: Minimum eight characters, at least one letter and one number");
+                }*/
                 _password = value;
             }
         }
@@ -49,6 +55,10 @@ namespace FinancialInstitution.entities
             }
             set
             {
+                if (!EntitiesValidations.ValidatePassCode(value+""))
+                {
+                    throw new CustomInvalidDataException("pass code must be 4 digits");
+                }
                 _passCode = value;
             }
         }

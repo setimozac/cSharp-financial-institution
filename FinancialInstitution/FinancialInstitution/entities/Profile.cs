@@ -1,4 +1,9 @@
+<<<<<<< .merge_file_a12196
 ﻿using System;
+=======
+﻿using FinancialInstitution.exceptions;
+using System;
+>>>>>>> .merge_file_a52968
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -101,6 +106,13 @@ namespace FinancialInstitution.entities
             }
             set
             {
+<<<<<<< .merge_file_a12196
+=======
+                if(value < 0 || value > 150)
+                {
+                    throw new CustomInvalidDataException("Invalid age");
+                }
+>>>>>>> .merge_file_a52968
                 _age = value;
             }
         }
