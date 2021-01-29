@@ -37,8 +37,11 @@ namespace FinancialInstitution
 
         private void LoadUser(User user)
         {
-            _currentProfileImage = user.Profile.Img;
-            ImgCustomer.Source = Create.ByteArrayToBitmapImage(user.Profile.Img);
+            if(user.Profile.Img != null)
+            {
+                _currentProfileImage = user.Profile.Img;
+                ImgCustomer.Source = Create.ByteArrayToBitmapImage(user.Profile.Img);
+            }
             TbFirstName.Text = user.Profile.FirstName;
             TbMiddleName.Text = user.Profile.MiddleName;
             TbLastName.Text = user.Profile.LastName;
@@ -186,11 +189,6 @@ namespace FinancialInstitution
             if (_currentProfileImage != null)
             {
                 _currentUserProfile.Profile.Img = _currentProfileImage;
-            }
-            else
-            {
-                MessageBox.Show("Photo must be selected", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
             }
 
             DbGlobals.ctx = new DbContextDemo();
