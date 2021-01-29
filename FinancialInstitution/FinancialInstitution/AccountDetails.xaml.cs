@@ -51,29 +51,6 @@ namespace FinancialInstitution
             TbPhone.Text = user.Profile.PhoneNumber;
             TbEmail.Text = user.Profile.Email;
             TbSinNumber.Text = user.Profile.SinNumber;
-            foreach (var account in user.Accounts)
-            {
-                if (account.AccountType == AccountTypeEnum.Checking)
-                {
-                    CbChecking.IsChecked = true;
-                }
-                else if (account.AccountType == AccountTypeEnum.Saving)
-                {
-                    CbSaving.IsChecked = true;
-                }
-                else if (account.AccountType == AccountTypeEnum.TaxFreeSaving)
-                {
-                    CbTaxFreeSaving.IsChecked = true;
-                }
-                else if (account.AccountType == AccountTypeEnum.Credit)
-                {
-                    CbCredit.IsChecked = true;
-                }
-                else
-                {
-                    CbChecking.IsChecked = true;
-                }
-            }
         }
 
         private void BtnImage_Click(object sender, RoutedEventArgs e)
@@ -113,10 +90,6 @@ namespace FinancialInstitution
             TbPhone.IsEnabled = true;
             TbEmail.IsEnabled = true;
             TbSinNumber.IsEnabled = true;
-            CbChecking.IsEnabled = true;
-            CbSaving.IsEnabled = true;
-            CbTaxFreeSaving.IsEnabled = true;
-            CbCredit.IsEnabled = true;
             BtnProfileEdit.Visibility = Visibility.Hidden;
             BtnProfileUpdate.Visibility = Visibility.Visible;
         }
@@ -217,122 +190,6 @@ namespace FinancialInstitution
             else
             {
                 MessageBox.Show("Photo must be selected", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            bool checkingFound = false;
-            bool savingFound = false;
-            bool taxFreeSavingFound = false;
-            bool creditFound = false;
-            Account checkingAccount = null;
-            Account savingAccount = null;
-            Account taxFreeSavingAccount = null;
-            Account creditAccount = null;
-            if ((CbChecking.IsChecked == true) || (CbSaving.IsChecked == true) || (CbTaxFreeSaving.IsChecked == true) || (CbCredit.IsChecked == true))
-            {
-                foreach (var a in _currentUserProfile.Accounts)
-                {
-                    if (a.AccountType == AccountTypeEnum.Checking)
-                    {
-                        checkingAccount = a;
-                        checkingFound = true;
-                    }
-                    if (a.AccountType == AccountTypeEnum.Saving)
-                    {
-                        savingAccount = a;
-                        savingFound = true;
-                    }
-                    if (a.AccountType == AccountTypeEnum.TaxFreeSaving)
-                    {
-                        taxFreeSavingAccount = a;
-                        taxFreeSavingFound = true;
-                    }
-                    if (a.AccountType == AccountTypeEnum.Credit)
-                    {
-                        creditAccount = a;
-                        creditFound = true;
-                    }
-                }
-
-                if (CbChecking.IsChecked == true)
-                {
-                    if (checkingFound == false)
-                        _currentUserProfile.Accounts.Add(new Account
-                        {
-                            AccountNumber = _currentUserProfile.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(10).NextDouble()) * 10000000),
-                            CreatedDate = DateTime.Now,
-                            AccountType = AccountTypeEnum.Checking,
-                            Balance = 0,
-                            User = _currentUserProfile,
-                            UserId = _currentUserProfile.Id
-                        });
-                }
-                else
-                {
-                    if (checkingFound == true)
-                        _currentUserProfile.Accounts.Remove(checkingAccount);
-                }
-
-                if (CbSaving.IsChecked == true)
-                {
-                    if (savingFound == false)
-                        _currentUserProfile.Accounts.Add(new Account
-                        {
-                            AccountNumber = _currentUserProfile.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(10).NextDouble()) * 10000000),
-                            CreatedDate = DateTime.Now,
-                            AccountType = AccountTypeEnum.Saving,
-                            Balance = 0,
-                            User = _currentUserProfile,
-                            UserId = _currentUserProfile.Id
-                        });
-                }
-                else
-                {
-                    if (savingFound == true)
-                        _currentUserProfile.Accounts.Remove(savingAccount);
-                }
-
-                if (CbTaxFreeSaving.IsChecked == true)
-                {
-                    if (taxFreeSavingFound == false)
-                        _currentUserProfile.Accounts.Add(new Account
-                        {
-                            AccountNumber = _currentUserProfile.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(10).NextDouble()) * 10000000),
-                            CreatedDate = DateTime.Now,
-                            AccountType = AccountTypeEnum.TaxFreeSaving,
-                            Balance = 0,
-                            User = _currentUserProfile,
-                            UserId = _currentUserProfile.Id
-                        });
-                }
-                else
-                {
-                    if (taxFreeSavingFound == true)
-                        _currentUserProfile.Accounts.Remove(taxFreeSavingAccount);
-                }
-
-                if (CbCredit.IsChecked == true)
-                {
-                    if (creditFound == false)
-                        _currentUserProfile.Accounts.Add(new Account
-                        {
-                            AccountNumber = _currentUserProfile.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(10).NextDouble()) * 10000000),
-                            CreatedDate = DateTime.Now,
-                            AccountType = AccountTypeEnum.Credit,
-                            Balance = 0,
-                            User = _currentUserProfile,
-                            UserId = _currentUserProfile.Id
-                        });
-                }
-                else
-                {
-                    if (creditFound == true)
-                        _currentUserProfile.Accounts.Remove(creditAccount);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Account type must be selected at least one", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
