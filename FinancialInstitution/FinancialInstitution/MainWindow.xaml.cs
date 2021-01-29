@@ -33,11 +33,11 @@ namespace FinancialInstitution
             InitializeComponent();
             DbGlobals.ctx = new DbContextDemo();
             ResetContent();
-            /*DbGlobals.ctx.Users.Add(new User() { Password = "abc123", PassCode = 1234, IsEmployee = true });
+            /*DbGlobals.ctx.Users.Add(new User() { Password = "123456789a", PassCode = 1234, IsEmployee = true });
             DbGlobals.ctx.SaveChanges();
             DbGlobals.ctx.Profiles.Add(new Profile()
             {
-                UserId = 2,
+                UserId = 1,
                 FirstName = "Moe",
                 MiddleName = "Mo",
                 LastName = "Ghoreishi",
@@ -86,9 +86,14 @@ namespace FinancialInstitution
                 create.Top = this.Top;
                 create.Topmost = true;
 
-                create.RequestResult += u => { LogedInClient = u; };
+                /*create.RequestResult += u => { LogedInClient = u; };*/
                 bool? createResult = create.ShowDialog();
                 TboxCreateUser.Foreground = Brushes.White;
+                if (createResult == true)
+                {
+                    BtnClientSignOut.Visibility = Visibility.Visible;
+                    TblClientInfo.Text = LogedInClient.Profile.FirstName;
+                }
             }
             
         }
