@@ -170,11 +170,6 @@ namespace FinancialInstitution
             {
                 _currentPerson.Profile.Img = _currentImage;
             }
-            else
-            {
-                MessageBox.Show("Photo must be selected", "Null error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
 
             if ((CbChecking.IsChecked == true) || (CbSaving.IsChecked == true) || (CbTaxFreeSaving.IsChecked == true) || (CbCredit.IsChecked == true))
             {
@@ -239,6 +234,7 @@ namespace FinancialInstitution
             _currentPerson.PassCode = 1234;
             _currentPerson.Password = "1234";
             _currentPerson.IsEmployee = false;
+            _currentPerson.Transactions = new List<entities.Transaction>();
             
             DbGlobals.ctx = new DbContextDemo();
             DbGlobals.ctx.Users.Add(_currentPerson);
