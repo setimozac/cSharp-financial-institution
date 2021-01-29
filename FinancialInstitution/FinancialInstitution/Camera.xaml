@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinancialInstitution"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Title="Camera" Height="350" Width="500" FontWeight="Bold" Foreground="Black" FontFamily="Consolas">
     <Grid>
         <Grid.ColumnDefinitions>

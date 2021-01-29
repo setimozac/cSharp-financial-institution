@@ -142,7 +142,10 @@ namespace FinancialInstitution
             {
                 LBalanceOfToAccount.Content = string.Format("{0:C}", _tempFromAccountBalance);
             }
-            LvTransaction.ItemsSource = _currentUser.Transactions.ToList<entities.Transaction>();
+            /*LvTransaction.ItemsSource = _currentUser.Transactions.ToList<entities.Transaction>();*/
+            LvTransaction.ItemsSource = (from t in DbGlobals.ctx.Transactions
+                                        where t.Account.UserId == _currentUser.Id || t.Account2.UserId == _currentUser.Id
+                                         select t).ToList();
             LvTransaction.Items.Refresh();
         }
 

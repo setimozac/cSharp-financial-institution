@@ -104,5 +104,10 @@ namespace FinancialInstitution
             LvUser.ItemsSource = uniqeItems;
             LvUser.Items.Refresh();
         }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
     }
 }
