@@ -238,7 +238,8 @@ namespace FinancialInstitution
                         if (_fromAccountNumber != TbToOtherAccount.Text)
                         {
                             List<Account> result = null;
-                            result = (from a in DbGlobals.ctx.Accounts where a.AccountNumber == TbToOtherAccount.Text select a).ToList<Account>();
+                            string tempAccountNumb = TbToOtherAccount.Text;
+                            result = (from a in DbGlobals.ctx.Accounts where a.AccountNumber == tempAccountNumb select a).ToList<Account>();
                             if (result.Count != 0)
                             {
                                 List<User> recieverUsers = null;

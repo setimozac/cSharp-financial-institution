@@ -22,6 +22,7 @@ namespace FinancialInstitution
     /// </summary>
     public partial class UpdateAccount : Window
     {
+        System.Random random = new System.Random();
         private readonly User _currentUser = MainWindow.LogedInClient;
         public UpdateAccount()
         {
@@ -108,7 +109,7 @@ namespace FinancialInstitution
                     if (checkingFound == false)
                         _currentUser.Accounts.Add(new Account
                         {
-                            AccountNumber = _currentUser.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(5).NextDouble()) * 10000000),
+                            AccountNumber = _currentUser.Profile.FirstName.ToUpper() + random.Next(),
                             CreatedDate = DateTime.Now,
                             AccountType = AccountTypeEnum.Checking,
                             Balance = 0,
@@ -127,7 +128,7 @@ namespace FinancialInstitution
                     if (savingFound == false)
                         _currentUser.Accounts.Add(new Account
                         {
-                            AccountNumber = _currentUser.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(66).NextDouble()) * 10000000),
+                            AccountNumber = _currentUser.Profile.FirstName.ToUpper() + random.Next(),
                             CreatedDate = DateTime.Now,
                             AccountType = AccountTypeEnum.Saving,
                             Balance = 0,
@@ -146,7 +147,7 @@ namespace FinancialInstitution
                     if (taxFreeSavingFound == false)
                         _currentUser.Accounts.Add(new Account
                         {
-                            AccountNumber = _currentUser.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(777).NextDouble()) * 10000000),
+                            AccountNumber = _currentUser.Profile.FirstName.ToUpper() + random.Next(),
                             CreatedDate = DateTime.Now,
                             AccountType = AccountTypeEnum.TaxFreeSaving,
                             Balance = 0,
@@ -165,7 +166,7 @@ namespace FinancialInstitution
                     if (creditFound == false)
                         _currentUser.Accounts.Add(new Account
                         {
-                            AccountNumber = _currentUser.Profile.FirstName.ToUpper() + string.Format("{0:F0}", (new Random(8888).NextDouble()) * 10000000),
+                            AccountNumber = _currentUser.Profile.FirstName.ToUpper() + random.Next(),
                             CreatedDate = DateTime.Now,
                             AccountType = AccountTypeEnum.Credit,
                             Balance = 0,
