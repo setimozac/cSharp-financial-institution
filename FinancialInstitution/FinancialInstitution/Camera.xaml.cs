@@ -122,5 +122,10 @@ namespace FinancialInstitution
             LocalWebCam.SignalToStop();
             this.Close();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            LocalWebCam.SignalToStop();
+        }
     }
 }

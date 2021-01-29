@@ -102,7 +102,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="HOME" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  Margin="10,3,3,20" Background="#FFACAC72" FontWeight="Bold" FontSize="16">
+        <Button x:Name="BtnCancel" Click="BtnCancel_Click" Content="HOME" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  Margin="10,3,3,20" Background="#FFACAC72" FontWeight="Bold" FontSize="16">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="0,0,0,30"/>
