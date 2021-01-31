@@ -43,7 +43,11 @@ namespace FinancialInstitution
             CbToAccount.ItemsSource = Enum.GetValues(typeof(AccountTypeEnum));
             CbToAccount.SelectedIndex = -1;
             if(_currentUser.Transactions != null)
-                LvTransaction.ItemsSource = _currentUser.Transactions.ToList<entities.Transaction>();
+                /*LvTransaction.ItemsSource = _currentUser.Transactions.ToList<entities.Transaction>();*/
+            LvTransaction.ItemsSource = (from t in DbGlobals.ctx.Transactions
+                                         where t.Account.UserId == _currentUser.Id || t.Account2.UserId == _currentUser.Id
+                                         select t).ToList();
+            LvTransaction.Items.Refresh();
         }
 
         private void CbFromAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)

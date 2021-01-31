@@ -33,32 +33,12 @@ namespace FinancialInstitution
             InitializeComponent();
             DbGlobals.ctx = new DbContextDemo();
             ResetContent();
-            /*DbGlobals.ctx.Users.Add(new User() { Password = "123456789a", PassCode = 1234, IsEmployee = true });
-            DbGlobals.ctx.SaveChanges();
-            DbGlobals.ctx.Profiles.Add(new Profile()
-            {
-                UserId = 1,
-                FirstName = "Moe",
-                MiddleName = "Mo",
-                LastName = "Ghoreishi",
-                Email = "Sizdah@gmail.com",
-                Age = 38,
-                PhoneNumber = "5553460192",
-                Address = "Montreal",
-                Gender = GenderEnum.Male,
-                MaritalStatus = MaritalStatusEnum.Married,
-                DateOfBirth = DateTime.Today,
-                SinNumber = "123456789"
-            });
-            DbGlobals.ctx.SaveChanges();
+            CreateAdminAccount();
 
 
-            DbGlobals.ctx.Accounts.Add(new Account() { UserId = 1, AccountNumber = "4522698876", AccountType = AccountTypeEnum.Checking, CreatedDate = DateTime.Today, Balance = 1000.00 });
-            DbGlobals.ctx.SaveChanges();
-            TblEmpInfo.Text = DbGlobals.ctx.Accounts.ToList<Account>()[0].AccountType.ToString();
-            DbGlobals.ctx.Transactions.Add(new entities.Transaction() { UserId = 1, RecieverUserId = 1, AccountNumber = "4522698876", RecieverAccountNumber = "4522698876", TransactionDate = DateTime.Now, Amount = 200.50 });
-            DbGlobals.ctx.SaveChanges();*/
         }
+
+        
 
         private void ResetContent()
         {
@@ -252,6 +232,37 @@ namespace FinancialInstitution
             LogedInClient = null;
             BtnClientSignOut.Visibility = Visibility.Hidden;
             TblClientInfo.Text = "";
+        }
+
+        private void CreateAdminAccount()
+        {
+            List<User> users = DbGlobals.ctx.Users.ToList();
+            if (users.Count > 0) return;
+            DbGlobals.ctx.Users.Add(new User() { Password = "123456789a", PassCode = 1234, IsEmployee = true });
+            DbGlobals.ctx.SaveChanges();
+            DbGlobals.ctx.Profiles.Add(new Profile()
+            {
+                UserId = 1,
+                FirstName = "admin",
+                MiddleName = "",
+                LastName = "admin",
+                Email = "admin@gmail.com",
+                Age = 38,
+                PhoneNumber = "5553460192",
+                Address = "Montreal",
+                Gender = GenderEnum.Male,
+                MaritalStatus = MaritalStatusEnum.Married,
+                DateOfBirth = DateTime.Today,
+                SinNumber = "123456789"
+            });
+            DbGlobals.ctx.SaveChanges();
+
+
+            DbGlobals.ctx.Accounts.Add(new Account() { UserId = 1, AccountNumber = "4522698876", AccountType = AccountTypeEnum.Checking, CreatedDate = DateTime.Today, Balance = 1000.00 });
+            DbGlobals.ctx.SaveChanges();
+            TblEmpInfo.Text = DbGlobals.ctx.Accounts.ToList<Account>()[0].AccountType.ToString();
+            DbGlobals.ctx.Transactions.Add(new entities.Transaction() { UserId = 1, RecieverUserId = 1, AccountNumber = "4522698876", RecieverAccountNumber = "4522698876", TransactionDate = DateTime.Now, Amount = 200.50 });
+            DbGlobals.ctx.SaveChanges();
         }
     }
 }
